@@ -1,18 +1,47 @@
 import json
+import zipfile
 from pathlib import Path
 
+# Paths
 HISTORY_FILE = Path(__file__).parent / "history" / "prompts.json"
+WEBSITE_DIR = Path(__file__).parent.parent / "website"
+WEBSITE_JSON = WEBSITE_DIR / "data" / "wallpapers.json"
+BUNDLES_DIR = WEBSITE_DIR / "assets" / "bundles"
+IMAGES_DIR = WEBSITE_DIR / "assets" / "images" / "generated"
 
-WEBSITE_JSON = (
-    Path(__file__).parent.parent
-    / "website"
-    / "data"
-    / "wallpapers.json"
-)
+
+def get_category_by_subject(prompt_text):
+    prompt_lower = prompt_text.lower()
+    if "nebula" in prompt_lower:
+        return "Space"
+    elif "particles" in prompt_lower or "smoke" in prompt_lower:
+        return "Minimal"
+    elif "electric" in prompt_lower or "hexagonal" in prompt_lower or "energy" in prompt_lower:
+        return "Cyberpunk"
+    elif "crystal" in prompt_lower or "glass" in prompt_lower or "silk" in prompt_lower:
+        return "Fantasy"
+    elif "liquid" in prompt_lower:
+        return "Nature"
+    else:
+        return "AMOLED"
+
+
+def create_zip_bundle(zip_path, wallpaper_list):
+    if not wallpaper_list:
+        with zipfile.ZipFile(zip_path, 'w') as zipf:
+            zipf.writestr("info.txt", "No wallpapers generated for this pack yet.")
+        return
+
+    with zipfile.ZipFile(zip_path, 'w') as zipf:
+        for wp in wallpaper_list:
+            image_filename = wp["image"].split("/")[-1]
+            source_file = IMAGES_DIR / image_filename
+            if source_file.exists():
+                zipf.write(source_file, arcname=image_filename)
+    print(f"Created bundle: {zip_path.name} with {len(wallpaper_list)} images.")
 
 
 def update_website():
-
     if not HISTORY_FILE.exists():
         print("History file not found.")
         return
@@ -21,34 +50,46 @@ def update_website():
         history = json.load(file)
 
     wallpapers = []
+    history_updated = False
 
     for item in history:
+        prompt = item.get("prompt", "")
+        new_category = get_category_by_subject(prompt)
+        if item.get("category") != new_category:
+            item["category"] = new_category
+            history_updated = True
 
+    if history_updated:
+        with open(HISTORY_FILE, "w", encoding="utf-8") as file:
+            json.dump(history, file, indent=4)
+
+    for item in history:
         if item["status"] != "completed":
             continue
 
         wallpapers.append({
-
             "id": item["id"],
-
             "title": item["title"],
-
             "category": item["category"],
-
             "image": f"assets/images/generated/{item['image']}",
-
             "download": f"assets/images/generated/{item['image']}",
-
             "provider": item["provider"],
-
             "date": item["date"]
-
         })
 
     WEBSITE_JSON.parent.mkdir(parents=True, exist_ok=True)
-
     with open(WEBSITE_JSON, "w", encoding="utf-8") as file:
-
         json.dump(wallpapers, file, indent=4)
 
     print(f"Website updated with {len(wallpapers)} wallpapers.")
+
+    # Generate bundles
+    BUNDLES_DIR.mkdir(parents=True, exist_ok=True)
+
+    amoled_wallpapers = [w for w in wallpapers if w["category"].lower() == "amoled"]
+    create_zip_bundle(BUNDLES_DIR / "amoled_pack.zip", amoled_wallpapers)
+
+    nature_wallpapers = [w for w in wallpapers if w["category"].lower() == "nature"]
+    create_zip_bundle(BUNDLES_DIR / "nature_pack.zip", nature_wallpapers)
+
+    create_zip_bundle(BUNDLES_DIR / "ultimate_bundle.zip", wallpapers)

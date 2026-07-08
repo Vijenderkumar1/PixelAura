@@ -71,6 +71,21 @@ async function loadWallpapers() {
             statTotal.textContent = wallpapers.length + "+";
         }
 
+        // Populate the hero preview cards with the first 5 wallpapers dynamically
+        const previewCards = document.querySelectorAll(".hero-preview .wp-card");
+        previewCards.forEach((card, index) => {
+            if (wallpapers[index]) {
+                card.innerHTML = `
+                    <img 
+                        src="${wallpapers[index].image}" 
+                        alt="${wallpapers[index].title}" 
+                        class="gallery-card-img" 
+                        style="width:100%; height:100%; object-fit:cover; border-radius:inherit;"
+                    >
+                `;
+            }
+        });
+
         applyFilters();
 
     } catch (error) {

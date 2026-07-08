@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "AMOLED 001",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -14,7 +14,7 @@
     {
         "id": 2,
         "title": "AMOLED 002",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -26,7 +26,7 @@
     {
         "id": 3,
         "title": "AMOLED 003",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -38,7 +38,7 @@
     {
         "id": 4,
         "title": "AMOLED 004",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -50,7 +50,7 @@
     {
         "id": 5,
         "title": "AMOLED 005",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -86,7 +86,7 @@
     {
         "id": 8,
         "title": "AMOLED 008",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -98,7 +98,7 @@
     {
         "id": 9,
         "title": "AMOLED 009",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -110,7 +110,7 @@
     {
         "id": 10,
         "title": "AMOLED 010",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:35:39",
         "status": "completed",
         "provider": "",
@@ -134,7 +134,7 @@
     {
         "id": 12,
         "title": "AMOLED 012",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -146,7 +146,7 @@
     {
         "id": 13,
         "title": "AMOLED 013",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -158,7 +158,7 @@
     {
         "id": 14,
         "title": "AMOLED 014",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -170,7 +170,7 @@
     {
         "id": 15,
         "title": "AMOLED 015",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -194,7 +194,7 @@
     {
         "id": 17,
         "title": "AMOLED 017",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -206,7 +206,7 @@
     {
         "id": 18,
         "title": "AMOLED 018",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -218,7 +218,7 @@
     {
         "id": 19,
         "title": "AMOLED 019",
-        "category": "AMOLED",
+        "category": "Nature",
         "date": "2026-07-08 07:41:02",
         "status": "completed",
         "provider": "",
@@ -242,7 +242,7 @@
     {
         "id": 21,
         "title": "AMOLED 021",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -254,7 +254,7 @@
     {
         "id": 22,
         "title": "AMOLED 022",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -266,7 +266,7 @@
     {
         "id": 23,
         "title": "AMOLED 023",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -278,7 +278,7 @@
     {
         "id": 24,
         "title": "AMOLED 024",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -290,7 +290,7 @@
     {
         "id": 25,
         "title": "AMOLED 025",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -302,7 +302,7 @@
     {
         "id": 26,
         "title": "AMOLED 026",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -314,7 +314,7 @@
     {
         "id": 27,
         "title": "AMOLED 027",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -338,7 +338,7 @@
     {
         "id": 29,
         "title": "AMOLED 029",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -350,7 +350,7 @@
     {
         "id": 30,
         "title": "AMOLED 030",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:42:31",
         "status": "completed",
         "provider": "",
@@ -362,7 +362,7 @@
     {
         "id": 31,
         "title": "AMOLED 031",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -374,7 +374,7 @@
     {
         "id": 32,
         "title": "AMOLED 032",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -386,7 +386,7 @@
     {
         "id": 33,
         "title": "AMOLED 033",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -410,7 +410,7 @@
     {
         "id": 35,
         "title": "AMOLED 035",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -422,7 +422,7 @@
     {
         "id": 36,
         "title": "AMOLED 036",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -434,7 +434,7 @@
     {
         "id": 37,
         "title": "AMOLED 037",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -446,7 +446,7 @@
     {
         "id": 38,
         "title": "AMOLED 038",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -458,7 +458,7 @@
     {
         "id": 39,
         "title": "AMOLED 039",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -470,7 +470,7 @@
     {
         "id": 40,
         "title": "AMOLED 040",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:52:40",
         "status": "completed",
         "provider": "",
@@ -494,7 +494,7 @@
     {
         "id": 42,
         "title": "AMOLED 042",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -506,7 +506,7 @@
     {
         "id": 43,
         "title": "AMOLED 043",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -518,7 +518,7 @@
     {
         "id": 44,
         "title": "AMOLED 044",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -530,7 +530,7 @@
     {
         "id": 45,
         "title": "AMOLED 045",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -542,7 +542,7 @@
     {
         "id": 46,
         "title": "AMOLED 046",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -554,7 +554,7 @@
     {
         "id": 47,
         "title": "AMOLED 047",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -566,7 +566,7 @@
     {
         "id": 48,
         "title": "AMOLED 048",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -578,7 +578,7 @@
     {
         "id": 49,
         "title": "AMOLED 049",
-        "category": "AMOLED",
+        "category": "Space",
         "date": "2026-07-08 07:57:17",
         "status": "completed",
         "provider": "",
@@ -614,7 +614,7 @@
     {
         "id": 52,
         "title": "AMOLED 052",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -626,7 +626,7 @@
     {
         "id": 53,
         "title": "AMOLED 053",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -638,7 +638,7 @@
     {
         "id": 54,
         "title": "AMOLED 054",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -662,7 +662,7 @@
     {
         "id": 56,
         "title": "AMOLED 056",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -674,7 +674,7 @@
     {
         "id": 57,
         "title": "AMOLED 057",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -686,7 +686,7 @@
     {
         "id": 58,
         "title": "AMOLED 058",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -698,7 +698,7 @@
     {
         "id": 59,
         "title": "AMOLED 059",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -710,7 +710,7 @@
     {
         "id": 60,
         "title": "AMOLED 060",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:40:46",
         "status": "completed",
         "provider": "",
@@ -722,7 +722,7 @@
     {
         "id": 61,
         "title": "AMOLED 061",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -734,7 +734,7 @@
     {
         "id": 62,
         "title": "AMOLED 062",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -746,7 +746,7 @@
     {
         "id": 63,
         "title": "AMOLED 063",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -770,7 +770,7 @@
     {
         "id": 65,
         "title": "AMOLED 065",
-        "category": "AMOLED",
+        "category": "Nature",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -782,7 +782,7 @@
     {
         "id": 66,
         "title": "AMOLED 066",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -794,7 +794,7 @@
     {
         "id": 67,
         "title": "AMOLED 067",
-        "category": "AMOLED",
+        "category": "Nature",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -806,7 +806,7 @@
     {
         "id": 68,
         "title": "AMOLED 068",
-        "category": "AMOLED",
+        "category": "Minimal",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -818,7 +818,7 @@
     {
         "id": 69,
         "title": "AMOLED 069",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
@@ -830,7 +830,7 @@
     {
         "id": 70,
         "title": "AMOLED 070",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "date": "2026-07-08 08:54:21",
         "status": "completed",
         "provider": "",
