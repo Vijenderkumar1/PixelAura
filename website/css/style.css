@@ -727,11 +727,17 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
 .price-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
 /* ── CATEGORIES SECTION ── */
+.cat-search-row {
+  margin: 28px 0 0;
+  display: flex;
+  align-items: center;
+}
+
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
-  margin-top: 48px;
+  margin-top: 28px;
 }
 .cat-card {
   aspect-ratio: 3/4;
@@ -771,6 +777,97 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   color: rgba(255,255,255,0.7);
   font-weight: 500;
   user-select: none;
+}
+
+/* ── CATEGORY DRAWER ── */
+.cat-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,16,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+.cat-drawer.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.cat-drawer-panel {
+  width: min(820px, 92vw);
+  height: 100%;
+  background: var(--surface);
+  border-left: 1px solid var(--border2);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 32px;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cat-drawer.active .cat-drawer-panel {
+  transform: translateX(0);
+}
+.drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.drawer-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.drawer-title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.drawer-count {
+  font-size: 13px;
+  color: var(--muted);
+}
+.drawer-close {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  color: var(--muted);
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.drawer-close:hover {
+  background: rgba(123,79,255,0.12);
+  border-color: rgba(123,79,255,0.4);
+  color: var(--text);
+}
+.drawer-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  flex: 1;
 }
 
 /* ── HOW IT WORKS ── */

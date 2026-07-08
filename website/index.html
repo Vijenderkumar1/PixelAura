@@ -137,29 +137,18 @@
 <section id="categories">
 <span class="eyebrow reveal">Collections</span>
 <h2 class="section-title reveal">Explore by category</h2>
-<p class="section-sub reveal">From deep AMOLED blacks to vivid galaxies — every aesthetic has a home here.</p>
-<div class="cat-grid reveal">
-<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">AMOLED</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Space</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Nature</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Cyberpunk</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Minimal</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Fantasy</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Ocean</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">Galaxy</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g10"></div><span class="cat-card-label">Cars</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g8"></div><span class="cat-card-label">Forest</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g2"></div><span class="cat-card-label">Anime</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g11"></div><span class="cat-card-label">Abstract</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">Neon</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Tech</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Texture</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Architecture</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Retro</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Pastel</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Aurora</span><span class="cat-card-count">0</span></div>
-<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">3D Render</span><span class="cat-card-count">0</span></div>
+<p class="section-sub reveal">Click any category to browse its wallpapers. From deep AMOLED blacks to vivid galaxies — every aesthetic has a home here.</p>
+
+<!-- Category Search Bar -->
+<div class="cat-search-row reveal">
+  <div class="search-bar" style="max-width:420px;width:100%;">
+    <span class="search-icon">⌕</span>
+    <input id="cat-search-input" class="search-input" type="text" placeholder="Search categories…" autocomplete="off">
+  </div>
 </div>
+
+<!-- Dynamic category grid (populated by app.js) -->
+<div class="cat-grid" id="cat-grid"></div>
 </section>
 <hr class="divider"/>
 <!-- HOW IT WORKS -->
@@ -326,6 +315,24 @@
         Unlock Ultimate Bundle (₹299)
       </button>
     </div>
+  </div>
+</div>
+
+<!-- CATEGORY DRAWER (slide-in panel) -->
+<div class="cat-drawer" id="cat-drawer">
+  <div class="cat-drawer-panel">
+    <!-- Drawer Header -->
+    <div class="drawer-header">
+      <div class="drawer-header-info">
+        <h2 class="drawer-title" id="drawer-title">Category</h2>
+        <span class="drawer-count" id="drawer-count">0 wallpapers</span>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">&times;</button>
+    </div>
+    <!-- Drawer Gallery Grid -->
+    <div class="drawer-gallery" id="drawer-gallery"></div>
+    <!-- Drawer Pagination -->
+    <div class="pagination" id="drawer-pagination" style="margin-top:32px;"></div>
   </div>
 </div>
 
