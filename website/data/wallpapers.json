@@ -614,7 +614,7 @@
     {
         "id": 71,
         "title": "AMOLED 071",
-        "category": "AMOLED",
+        "category": "Minimal",
         "image": "assets/images/generated/amoled_0071.png",
         "download": "assets/images/generated/amoled_0071.png",
         "provider": "",
@@ -623,7 +623,7 @@
     {
         "id": 72,
         "title": "AMOLED 072",
-        "category": "AMOLED",
+        "category": "Nature",
         "image": "assets/images/generated/amoled_0072.png",
         "download": "assets/images/generated/amoled_0072.png",
         "provider": "",
@@ -632,7 +632,7 @@
     {
         "id": 73,
         "title": "AMOLED 073",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "image": "assets/images/generated/amoled_0073.png",
         "download": "assets/images/generated/amoled_0073.png",
         "provider": "",
@@ -641,7 +641,7 @@
     {
         "id": 74,
         "title": "AMOLED 074",
-        "category": "AMOLED",
+        "category": "Nature",
         "image": "assets/images/generated/amoled_0074.png",
         "download": "assets/images/generated/amoled_0074.png",
         "provider": "",
@@ -650,7 +650,7 @@
     {
         "id": 75,
         "title": "AMOLED 075",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "image": "assets/images/generated/amoled_0075.png",
         "download": "assets/images/generated/amoled_0075.png",
         "provider": "",
@@ -659,7 +659,7 @@
     {
         "id": 76,
         "title": "AMOLED 076",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "image": "assets/images/generated/amoled_0076.png",
         "download": "assets/images/generated/amoled_0076.png",
         "provider": "",
@@ -668,7 +668,7 @@
     {
         "id": 77,
         "title": "AMOLED 077",
-        "category": "AMOLED",
+        "category": "Nature",
         "image": "assets/images/generated/amoled_0077.png",
         "download": "assets/images/generated/amoled_0077.png",
         "provider": "",
@@ -686,7 +686,7 @@
     {
         "id": 79,
         "title": "AMOLED 079",
-        "category": "AMOLED",
+        "category": "Fantasy",
         "image": "assets/images/generated/amoled_0079.png",
         "download": "assets/images/generated/amoled_0079.png",
         "provider": "",
@@ -695,10 +695,100 @@
     {
         "id": 80,
         "title": "AMOLED 080",
-        "category": "AMOLED",
+        "category": "Cyberpunk",
         "image": "assets/images/generated/amoled_0080.png",
         "download": "assets/images/generated/amoled_0080.png",
         "provider": "",
         "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 81,
+        "title": "AMOLED 081",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/amoled_0081.png",
+        "download": "assets/images/generated/amoled_0081.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 82,
+        "title": "AMOLED 082",
+        "category": "Minimal",
+        "image": "assets/images/generated/amoled_0082.png",
+        "download": "assets/images/generated/amoled_0082.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 83,
+        "title": "AMOLED 083",
+        "category": "Fantasy",
+        "image": "assets/images/generated/amoled_0083.png",
+        "download": "assets/images/generated/amoled_0083.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 84,
+        "title": "AMOLED 084",
+        "category": "Fantasy",
+        "image": "assets/images/generated/amoled_0084.png",
+        "download": "assets/images/generated/amoled_0084.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 85,
+        "title": "AMOLED 085",
+        "category": "Space",
+        "image": "assets/images/generated/amoled_0085.png",
+        "download": "assets/images/generated/amoled_0085.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 86,
+        "title": "AMOLED 086",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0086.png",
+        "download": "assets/images/generated/amoled_0086.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 87,
+        "title": "AMOLED 087",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/amoled_0087.png",
+        "download": "assets/images/generated/amoled_0087.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 88,
+        "title": "AMOLED 088",
+        "category": "Fantasy",
+        "image": "assets/images/generated/amoled_0088.png",
+        "download": "assets/images/generated/amoled_0088.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 89,
+        "title": "AMOLED 089",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0089.png",
+        "download": "assets/images/generated/amoled_0089.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 90,
+        "title": "AMOLED 090",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0090.png",
+        "download": "assets/images/generated/amoled_0090.png",
+        "provider": "",
+        "date": "2026-07-08 09:38:56"
     }
 ]
