@@ -294,7 +294,7 @@ body::before {
 .wp-card:nth-child(2) { margin-top: 20px; }
 .wp-card:nth-child(4) { margin-top: 20px; }
 
-/* AI-style gradient wallpapers (no external images needed) */
+/* Fallback gradient backgrounds if no images are loaded */
 .wp-1 { background: linear-gradient(160deg, #0a0020, #2d0060, #7B4FFF, #C84BFF, #ff9a9e); }
 .wp-2 { background: linear-gradient(200deg, #000510, #001a4d, #003399, #0066ff, #00ccff); }
 .wp-3 { background: linear-gradient(140deg, #0a0010, #1a0030, #4d0099, #9900cc, #ff00aa, #ffaa00); }
@@ -444,13 +444,6 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
 }
 
 /* ── WALLPAPER GALLERY ── */
-/*
- * BUG FIX NOTE:
- * The .reveal class was intentionally removed from the #gallery div in index.html.
- * The gallery div was empty at observer init time (height=0), which prevented the
- * IntersectionObserver from ever firing (threshold:0.1 = 10% of 0px = never met).
- * The gallery is always visible now — individual section headings still animate in.
- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -466,6 +459,7 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
   aspect-ratio: 9/16;
   background: var(--card);
+  user-select: none;
 }
 .gallery-card:hover {
   transform: translateY(-5px) scale(1.02);
@@ -480,6 +474,9 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* ── Card overlay (shows on hover) ── */
@@ -523,24 +520,33 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   transition: opacity 0.2s, transform 0.15s;
   box-shadow: 0 4px 16px rgba(123,79,255,0.4);
   white-space: nowrap;
+  border: none;
+  cursor: pointer;
 }
 .download-btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
 
-/* ── FREE badge (top-right corner) ── */
+/* ── FREE/PREMIUM badges ── */
 .gallery-free-badge {
   position: absolute;
   top: 10px; right: 10px;
   padding: 3px 10px;
   border-radius: 99px;
-  background: rgba(0,229,200,0.15);
-  border: 1px solid rgba(0,229,200,0.3);
   font-size: 10px;
   font-weight: 600;
-  color: var(--a5);
   letter-spacing: 0.5px;
+}
+.gallery-free-badge.free {
+  background: rgba(0,229,200,0.15);
+  border: 1px solid rgba(0,229,200,0.3);
+  color: var(--a5);
+}
+.gallery-free-badge.premium {
+  background: rgba(255, 179, 71, 0.15);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  color: var(--a4);
 }
 
 /* ── Empty gallery state ── */
@@ -561,7 +567,7 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   color: var(--a1);
 }
 
-/* wallpaper gradient styles */
+/* Category card backgrounds (Fallback) */
 .g1  { background: linear-gradient(160deg,#0d0020,#2d0060,#7B4FFF,#C84BFF); }
 .g2  { background: linear-gradient(200deg,#000510,#001a4d,#0066ff,#00ccff); }
 .g3  { background: linear-gradient(140deg,#0a0010,#4d0099,#9900cc,#ff00aa,#ffaa00); }
@@ -725,7 +731,12 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .cat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-.cat-card-bg { width: 100%; height: 100%; }
+.cat-card-bg {
+  width: 100%; height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
 .cat-card-label {
   position: absolute;
   bottom: 14px;
@@ -735,6 +746,7 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   font-weight: 700;
   color: #fff;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  user-select: none;
 }
 .cat-card-count {
   position: absolute;
@@ -746,6 +758,7 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   font-size: 10px;
   color: rgba(255,255,255,0.7);
   font-weight: 500;
+  user-select: none;
 }
 
 /* ── HOW IT WORKS ── */
@@ -870,6 +883,111 @@ footer {
 
 /* ── DIVIDER ── */
 .divider { border: none; border-top: 1px solid var(--border); }
+
+/* ── MODAL WINDOW ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 16, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-content {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 24px;
+  padding: 40px;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  transform: translateY(24px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+}
+.modal-backdrop.active .modal-content {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 26px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text); }
+
+.modal-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: inline-block;
+  user-select: none;
+}
+.modal-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+.modal-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+.modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.modal-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--body);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, opacity 0.2s;
+  text-align: center;
+}
+.modal-btn.primary {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(123,79,255,0.35);
+}
+.modal-btn.secondary {
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border: 1px solid var(--border2);
+}
+.modal-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

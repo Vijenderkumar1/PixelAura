@@ -206,7 +206,7 @@
 <li>Instant download</li>
 <li>Lifetime access</li>
 </ul>
-<a class="price-btn secondary" href="assets/bundles/nature_pack.zip" download="nature_pack.zip">Get Nature Pack</a>
+<a class="price-btn secondary" href="javascript:void(0)" onclick="openPricingModal('Nature', 'Nature Pack', 'pack')">Get Nature Pack</a>
 </div>
 <div class="price-card featured">
 <div>
@@ -222,7 +222,7 @@
 <li>Free future packs</li>
 <li>Priority support</li>
 </ul>
-<a class="price-btn primary" href="assets/bundles/ultimate_bundle.zip" download="ultimate_bundle.zip">Get Ultimate Bundle</a>
+<a class="price-btn primary" href="javascript:void(0)" onclick="openPricingModal('all', 'Ultimate Bundle', 'bundle')">Get Ultimate Bundle</a>
 </div>
 <div class="price-card">
 <div>
@@ -236,7 +236,7 @@
 <li>OLED optimised</li>
 <li>Lifetime access</li>
 </ul>
-<a class="price-btn secondary" href="assets/bundles/amoled_pack.zip" download="amoled_pack.zip">Get AMOLED Pack</a>
+<a class="price-btn secondary" href="javascript:void(0)" onclick="openPricingModal('AMOLED', 'AMOLED Pack', 'pack')">Get AMOLED Pack</a>
 </div>
 </div>
 </section>
@@ -291,6 +291,26 @@
 </div>
 </div>
 </footer>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-backdrop" id="payment-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+    <div class="modal-icon" id="modal-main-icon">🔒</div>
+    <h3 class="modal-title" id="modal-title">Unlock Premium Wallpaper</h3>
+    <p class="modal-desc" id="modal-desc">
+      This wallpaper is part of our premium collection. Choose a pack below to unlock instant downloads, 4K resolutions, and lifetime updates.
+    </p>
+    <div class="modal-options" id="modal-options-wrapper">
+      <button class="modal-btn primary" id="modal-btn-pack" onclick="processMockPayment('pack')">
+        Unlock Pack (₹99)
+      </button>
+      <button class="modal-btn secondary" id="modal-btn-bundle" onclick="processMockPayment('bundle')">
+        Unlock Ultimate Bundle (₹299)
+      </button>
+    </div>
+  </div>
+</div>
 
 <script src="js/app.js"></script></body>
 </html>

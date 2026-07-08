@@ -14,8 +14,6 @@ window.addEventListener(
 );
 
 // ── Scroll reveal animation ──
-// NOTE: The #gallery div does NOT have .reveal so this observer
-// is only used for static section elements (headings, stats, etc.)
 const revealObserver = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry, index) => {
@@ -51,6 +49,9 @@ let currentPage        = 1;
 let currentCategory    = "all";
 let searchQuery        = "";
 
+let activeCategoryForUnlock = "";
+let activeTitleForUnlock = "";
+
 // ===============================
 // Load wallpapers.json
 // ===============================
@@ -81,9 +82,43 @@ async function loadWallpapers() {
                         alt="${wallpapers[index].title}" 
                         class="gallery-card-img" 
                         style="width:100%; height:100%; object-fit:cover; border-radius:inherit;"
+                        oncontextmenu="return false;"
+                        ondragstart="return false;"
                     >
                 `;
+                // Add right-click and drag-start prevention to hero preview card container
+                card.addEventListener("contextmenu", (e) => e.preventDefault());
+                card.addEventListener("dragstart", (e) => e.preventDefault());
             }
+        });
+
+        // Populate categories cards with actual wallpaper counts and category background previews
+        const catCards = document.querySelectorAll(".cat-card");
+        catCards.forEach((card) => {
+            const labelEl = card.querySelector(".cat-card-label");
+            const countEl = card.querySelector(".cat-card-count");
+            const bgEl    = card.querySelector(".cat-card-bg");
+
+            if (labelEl && countEl) {
+                const category = labelEl.textContent.trim();
+                const matched = wallpapers.filter(
+                    (w) => w.category.toLowerCase() === category.toLowerCase()
+                );
+
+                // Set actual count
+                countEl.textContent = matched.length;
+
+                // Set preview from the first wallpaper of this category
+                if (matched.length > 0 && bgEl) {
+                    bgEl.style.background = `url(${matched[0].image}) no-repeat center center/cover`;
+                    bgEl.style.pointerEvents = "none";
+                    bgEl.style.userSelect = "none";
+                }
+            }
+
+            // Disable drag and right click on categories card
+            card.addEventListener("contextmenu", (e) => e.preventDefault());
+            card.addEventListener("dragstart", (e) => e.preventDefault());
         });
 
         applyFilters();
@@ -127,6 +162,23 @@ function applyFilters() {
 }
 
 // ===============================
+// Purchase Unlocks Storage
+// ===============================
+
+function unlockCategory(cat) {
+    let unlocked = JSON.parse(localStorage.getItem("unlocked_packs") || "[]");
+    if (!unlocked.includes(cat.toLowerCase())) {
+        unlocked.push(cat.toLowerCase());
+        localStorage.setItem("unlocked_packs", JSON.stringify(unlocked));
+    }
+}
+
+function isUnlocked(category) {
+    let unlocked = JSON.parse(localStorage.getItem("unlocked_packs") || "[]");
+    return unlocked.includes("ultimate") || unlocked.includes(category.toLowerCase());
+}
+
+// ===============================
 // Render Gallery Cards
 // ===============================
 
@@ -151,28 +203,54 @@ function renderGallery() {
         card.className = "gallery-card";
         card.dataset.cat = item.category.toLowerCase();
 
+        // ── FULL FILE ACCESS & RIGHT CLICK PROTECTION ──
+        card.addEventListener("contextmenu", (e) => e.preventDefault());
+        card.addEventListener("dragstart", (e) => e.preventDefault());
+
+        // First 10 wallpapers in database are free. Others require pack/bundle purchase
+        const isFree = item.id <= 10;
+        const hasAccess = isFree || isUnlocked(item.category);
+
         card.innerHTML = `
             <img
                 class="gallery-card-img"
                 src="${item.image}"
                 alt="${item.title}"
                 loading="lazy"
+                oncontextmenu="return false;"
+                ondragstart="return false;"
             >
 
-            <div class="gallery-card-overlay">
+            <div class="gallery-card-overlay" oncontextmenu="return false;">
                 <span class="gallery-tag">${item.category}</span>
-                <a
-                    class="download-btn"
-                    href="${item.download}"
-                    download="${item.title}"
-                    title="Download ${item.title}"
-                    onclick="event.stopPropagation()"
-                >
-                    ↓ Download
-                </a>
+                ${
+                    hasAccess
+                        ? `
+                    <a
+                        class="download-btn"
+                        href="${item.download}"
+                        download="${item.title}"
+                        title="Download ${item.title}"
+                        onclick="event.stopPropagation()"
+                    >
+                        ↓ Download
+                    </a>
+                `
+                        : `
+                    <button
+                        class="download-btn"
+                        style="background: var(--grad);"
+                        onclick="openPaymentModal('${item.category}', '${item.title}'); event.stopPropagation();"
+                    >
+                        🔒 Unlock
+                    </button>
+                `
+                }
             </div>
 
-            <span class="gallery-free-badge">FREE</span>
+            <span class="gallery-free-badge ${hasAccess ? "free" : "premium"}">
+                ${hasAccess ? "FREE" : "🔒 PREMIUM"}
+            </span>
         `;
 
         gallery.appendChild(card);
@@ -314,6 +392,134 @@ if (hamburger && navLinks) {
         navLinks.classList.toggle("open");
     });
 }
+
+// ===============================
+// Payment & Unlock Modal Logic
+// ===============================
+
+const paymentModal = document.getElementById("payment-modal");
+const modalTitle   = document.getElementById("modal-title");
+const modalDesc    = document.getElementById("modal-desc");
+const packBtn      = document.getElementById("modal-btn-pack");
+const bundleBtn    = document.getElementById("modal-btn-bundle");
+const mainIcon     = document.getElementById("modal-main-icon");
+const optionsWrapper = document.getElementById("modal-options-wrapper");
+
+function openPaymentModal(category, title) {
+    activeCategoryForUnlock = category;
+    activeTitleForUnlock = title;
+
+    if (paymentModal) {
+        // Reset modal structure to default choices
+        mainIcon.textContent = "🔒";
+        mainIcon.style.animation = "none";
+        mainIcon.style.color = "inherit";
+        modalTitle.textContent = `Unlock ${title}`;
+        modalDesc.textContent = `This wallpaper belongs to the premium ${category} Pack. Unlock all ${category} wallpapers, or upgrade to the Ultimate Bundle to unlock all categories.`;
+        optionsWrapper.style.display = "flex";
+        if (packBtn) {
+            packBtn.style.display = "block";
+            packBtn.textContent = `Unlock ${category} Pack (₹99)`;
+        }
+        paymentModal.classList.add("active");
+    }
+}
+
+function openPricingModal(category, title, type) {
+    activeCategoryForUnlock = category;
+    activeTitleForUnlock = title;
+
+    if (paymentModal) {
+        // Reset modal structure to default choices
+        mainIcon.textContent = "🔒";
+        mainIcon.style.animation = "none";
+        mainIcon.style.color = "inherit";
+        modalTitle.textContent = `Unlock ${title}`;
+        optionsWrapper.style.display = "flex";
+
+        if (type === "bundle") {
+            modalDesc.textContent = "Unlock the Ultimate Bundle with lifetime download access to all 10 wallpaper categories instantly.";
+            if (packBtn) packBtn.style.display = "none";
+        } else {
+            modalDesc.textContent = `Unlock the premium ${category} Pack with all matching wallpapers, or upgrade to the Ultimate Bundle with lifetime access to all categories.`;
+            if (packBtn) {
+                packBtn.style.display = "block";
+                packBtn.textContent = `Unlock ${category} Pack (₹99)`;
+            }
+        }
+        paymentModal.classList.add("active");
+    }
+}
+
+function closePaymentModal() {
+    if (paymentModal) {
+        paymentModal.classList.remove("active");
+    }
+}
+
+function processMockPayment(type) {
+    if (!paymentModal) return;
+
+    // Show processing screen inside the modal
+    mainIcon.textContent = "⏳";
+    mainIcon.style.animation = "spin 1s linear infinite";
+    mainIcon.style.color = "var(--a1)";
+    modalTitle.textContent = "Processing Secure Payment...";
+    modalDesc.textContent = "Connecting to billing gateway. Please do not refresh or close this window.";
+    optionsWrapper.style.display = "none";
+
+    setTimeout(() => {
+        // Show success screen
+        mainIcon.textContent = "✓";
+        mainIcon.style.animation = "none";
+        mainIcon.style.color = "var(--a5)";
+        modalTitle.textContent = "Payment Successful!";
+        modalDesc.textContent = "Your purchase is complete! The gallery has been unlocked and your pack is downloading now.";
+
+        // Append a single button to reload and close
+        const continueBtn = document.createElement("button");
+        continueBtn.className = "modal-btn primary";
+        continueBtn.textContent = "Continue";
+        continueBtn.style.marginTop = "20px";
+        continueBtn.onclick = () => closeAndReloadModal(type);
+        modalDesc.parentNode.insertBefore(continueBtn, modalDesc.nextSibling);
+
+        // Execute dynamic unlocking and trigger download
+        let zipUrl = "";
+        let zipName = "";
+        if (type === "bundle") {
+            zipUrl = "assets/bundles/ultimate_bundle.zip";
+            zipName = "ultimate_bundle.zip";
+            unlockCategory("ultimate");
+        } else {
+            const catLower = activeCategoryForUnlock.toLowerCase();
+            zipUrl = `assets/bundles/${catLower}_pack.zip`;
+            zipName = `${catLower}_pack.zip`;
+            unlockCategory(catLower);
+        }
+
+        // Trigger ZIP bundle download
+        const dLink = document.createElement("a");
+        dLink.href = zipUrl;
+        dLink.download = zipName;
+        document.body.appendChild(dLink);
+        dLink.click();
+        document.body.removeChild(dLink);
+
+    }, 2000);
+}
+
+function closeAndReloadModal(type) {
+    closePaymentModal();
+    // Re-render gallery to reflect unlocked status immediately
+    renderGallery();
+}
+
+window.openPaymentModal = openPaymentModal;
+window.openPricingModal  = openPricingModal;
+window.closePaymentModal = closePaymentModal;
+window.processMockPayment = processMockPayment;
+window.closeAndReloadModal = closeAndReloadModal;
 
 // ── Init ──
 loadWallpapers();
