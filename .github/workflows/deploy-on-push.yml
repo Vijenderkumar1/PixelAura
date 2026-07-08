@@ -1,0 +1,40 @@
+name: 🚀 Deploy Website on Push
+
+# Trigger: every time code is pushed to main (for instant site updates)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'website/**'     # only deploy when website files change
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website/ as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
