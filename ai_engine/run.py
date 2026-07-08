@@ -1,16 +1,18 @@
 from pathlib import Path
 
-from prompt_generator import generate_prompts
+from prompt_generator import generate_prompts, get_todays_categories
 from job_queue import JobQueue
 from image_manager import ImageManager
 from website_updater import update_website
 
 print("=" * 60)
-print("        PixelAura AI Engine v1.0")
+print("        PixelAura AI Engine v2.0")
+print("  🔄 Daily rotation: 4 categories × 5 images = 20/day")
 print("=" * 60)
 
-# Generate 10 new prompts for EACH of the 20 categories
-generate_prompts(10)
+# Auto-select today's 4 categories from the 20-category rotation
+# Every 5 days the full cycle completes. No repeats across days.
+generate_prompts(count_per_category=5)  # categories=None → auto picks today's 4
 
 queue = JobQueue()
 manager = ImageManager()

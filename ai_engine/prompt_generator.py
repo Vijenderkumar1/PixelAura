@@ -190,12 +190,37 @@ def create_prompt_for_category(category):
     )
 
 
-def generate_prompts(count_per_category=10):
-    history = load_history()
-    old_prompts = {item["prompt"] for item in history}
-    generated = []
+def get_todays_categories(cats_per_day=4):
+    """
+    Rotate through ALL_CATEGORIES based on today's date.
+    Every day a different set of `cats_per_day` categories is chosen.
+    After (len(CATEGORIES) / cats_per_day) days the full cycle repeats.
+    """
+    day_number = (datetime.now() - datetime(2024, 1, 1)).days
+    total      = len(CATEGORIES)
+    start      = (day_number * cats_per_day) % total
+    # Wrap around the list if needed
+    indices = [(start + i) % total for i in range(cats_per_day)]
+    chosen  = [CATEGORIES[i] for i in indices]
+    return chosen
 
-    for category in CATEGORIES:
+
+def generate_prompts(count_per_category=5, categories=None):
+    """
+    Generate `count_per_category` unique prompts for each category in
+    `categories`. If categories is None, today's rotating set is used.
+    """
+    if categories is None:
+        categories = get_todays_categories()
+
+    history     = load_history()
+    old_prompts = {item["prompt"] for item in history}
+    generated   = []
+
+    print(f"\n📅 Today's categories: {', '.join(categories)}")
+    print(f"🎨 Generating {count_per_category} wallpapers each = {count_per_category * len(categories)} total\n")
+
+    for category in categories:
         category_generated = 0
         attempts = 0
         while category_generated < count_per_category and attempts < 100:
@@ -205,16 +230,16 @@ def generate_prompts(count_per_category=10):
                 continue
 
             wallpaper = {
-                "id": len(history) + 1,
-                "title": f"{category} {len(history)+1:03}",
-                "category": category,
-                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "status": "pending",
-                "provider": "",
-                "image": "",
+                "id":        len(history) + 1,
+                "title":     f"{category} {len(history)+1:03}",
+                "category":  category,
+                "date":      datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "status":    "pending",
+                "provider":  "",
+                "image":     "",
                 "thumbnail": "",
-                "uploaded": False,
-                "prompt": prompt
+                "uploaded":  False,
+                "prompt":    prompt
             }
 
             history.append(wallpaper)
@@ -223,4 +248,4 @@ def generate_prompts(count_per_category=10):
             category_generated += 1
 
     save_history(history)
-    return generated
+    return generated
