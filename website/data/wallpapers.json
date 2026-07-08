@@ -610,5 +610,95 @@
         "download": "assets/images/generated/amoled_0070.png",
         "provider": "",
         "date": "2026-07-08 08:54:21"
+    },
+    {
+        "id": 71,
+        "title": "AMOLED 071",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0071.png",
+        "download": "assets/images/generated/amoled_0071.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 72,
+        "title": "AMOLED 072",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0072.png",
+        "download": "assets/images/generated/amoled_0072.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 73,
+        "title": "AMOLED 073",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0073.png",
+        "download": "assets/images/generated/amoled_0073.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 74,
+        "title": "AMOLED 074",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0074.png",
+        "download": "assets/images/generated/amoled_0074.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 75,
+        "title": "AMOLED 075",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0075.png",
+        "download": "assets/images/generated/amoled_0075.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 76,
+        "title": "AMOLED 076",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0076.png",
+        "download": "assets/images/generated/amoled_0076.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 77,
+        "title": "AMOLED 077",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0077.png",
+        "download": "assets/images/generated/amoled_0077.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 78,
+        "title": "AMOLED 078",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0078.png",
+        "download": "assets/images/generated/amoled_0078.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 79,
+        "title": "AMOLED 079",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0079.png",
+        "download": "assets/images/generated/amoled_0079.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
+    },
+    {
+        "id": 80,
+        "title": "AMOLED 080",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0080.png",
+        "download": "assets/images/generated/amoled_0080.png",
+        "provider": "",
+        "date": "2026-07-08 06:05:08"
     }
 ]
