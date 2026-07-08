@@ -3,16 +3,58 @@ import random
 from pathlib import Path
 from datetime import datetime
 
-from prompts.colors import COLORS
-from prompts.subjects import SUBJECTS
 from prompts.styles import STYLES
-from prompts.lighting import LIGHTING
-from prompts.backgrounds import BACKGROUNDS
-from prompts.effects import EFFECTS
 from prompts.quality import QUALITY
 from prompts.negative import NEGATIVE
 
 HISTORY_FILE = Path(__file__).parent / "history" / "prompts.json"
+
+CATEGORIES = ["AMOLED", "Space", "Nature", "Cyberpunk", "Minimal", "Fantasy"]
+
+CATEGORY_ASSETS = {
+    "AMOLED": {
+        "subjects": ["liquid metal flow", "sleek glass ribbons", "hexagonal grid patterns", "sharp crystal shards", "minimal geometric structures", "energy ripples"],
+        "backgrounds": ["deep black backdrop", "deep AMOLED black", "matte black surface", "pitch black background"],
+        "colors": ["neon blue", "luxurious gold", "emerald green", "vibrant magenta", "neon cyan"],
+        "lighting": ["neon glowing elements", "dramatic rim lighting", "bright edge highlights", "cyber glow"],
+        "effects": ["high contrast reflections", "subtle metallic sheen", "luminous glow"]
+    },
+    "Space": {
+        "subjects": ["stellar nebula clouds", "distant spiral galaxy", "cosmic dust clouds", "massive glowing black hole", "stellar star cluster", "interstellar cosmic energy"],
+        "backgrounds": ["deep space cosmos", "starry cosmic backdrop", "vast dark universe filled with stars"],
+        "colors": ["deep purple and indigo", "electric blue and magenta", "cosmic gold and silver", "violet and stellar dust"],
+        "lighting": ["distant stellar glow", "supernova ambient light", "mystic starlight"],
+        "effects": ["nebula gas dust clouds", "magical floating stardust", "glowing stellar particles"]
+    },
+    "Nature": {
+        "subjects": ["misty forest morning trees", "ocean waves crashing at sunset", "autumn leaves falling in wind", "morning dew drops on green leaves", "cascading waterfall in deep forest"],
+        "backgrounds": ["soft blurred nature background", "misty natural fog horizon", "beautiful outdoor sunset glow"],
+        "colors": ["emerald green and forest teal", "golden hour orange and yellow", "ocean blue and seafoam", "warm earth tones"],
+        "lighting": ["soft morning sun rays", "warm golden hour lighting", "dappled forest tree sunlight"],
+        "effects": ["soft natural bokeh", "glowing dew reflections", "ethereal morning mist"]
+    },
+    "Cyberpunk": {
+        "subjects": ["futuristic neon skyscraper outline", "glowing hologram city map", "cybernetic interface lines", "neon circuit board grid", "cyber vehicle light trails"],
+        "backgrounds": ["dark rainy city street at night", "futuristic terminal room with displays", "neon illuminated dark alleyway"],
+        "colors": ["neon pink and cyan", "cyber orange and purple", "bright neon green and violet", "electric blue and red"],
+        "lighting": ["flickering neon streetlamps", "bright holographic projections", "vibrant cyber glow"],
+        "effects": ["rain puddles reflections", "digital noise scanlines", "futuristic glowing HUD overlays"]
+    },
+    "Minimal": {
+        "subjects": ["simple abstract 3d sphere", "minimalist curved ribbon curve", "geometric circle design", "clean thin lines", "shadow geometry"],
+        "backgrounds": ["clean solid colored studio backdrop", "soft gray minimalist surface", "empty neutral background"],
+        "colors": ["pastel pink", "muted soft blue", "warm minimalist beige", "monochrome slate gray", "matte white"],
+        "lighting": ["soft studio diffusion light", "clean sharp directional shadow", "ambient fill light"],
+        "effects": ["smooth matte textures", "clean clean aesthetic", "minimalist visual depth"]
+    },
+    "Fantasy": {
+        "subjects": ["magical stardust swirling portal", "floating crystal shards island", "ancient mystical glowing tree", "dreamlike celestial palace", "floating abstract silk ribbons"],
+        "backgrounds": ["mystical glowing fog", "dreamlike fairy-tale horizon sky", "ethereal starry fantasy backdrop"],
+        "colors": ["lavender and gold", "shimmering fairy pink", "mystical twilight blue", "ethereal silver white"],
+        "lighting": ["magical stardust shine", "soft mystical moonlight", "ethereal divine glow"],
+        "effects": ["floating magical sparkles", "dreamy stardust dust clouds", "ethereal soft particles"]
+    }
+}
 
 
 def load_history():
@@ -27,13 +69,14 @@ def save_history(history):
         json.dump(history, file, indent=4)
 
 
-def create_prompt():
-    color = random.choice(COLORS)
-    subject = random.choice(SUBJECTS)
+def create_prompt_for_category(category):
+    assets = CATEGORY_ASSETS[category]
+    subject = random.choice(assets["subjects"])
+    background = random.choice(assets["backgrounds"])
+    color = random.choice(assets["colors"])
+    lighting = random.choice(assets["lighting"])
+    effect = random.choice(assets["effects"])
     style = random.choice(STYLES)
-    lighting = random.choice(LIGHTING)
-    background = random.choice(BACKGROUNDS)
-    effect = random.choice(EFFECTS)
     quality = ", ".join(QUALITY)
     negative = ", ".join(NEGATIVE)
 
@@ -44,37 +87,20 @@ def create_prompt():
     )
 
 
-def get_category_by_subject(prompt_text):
-    prompt_lower = prompt_text.lower()
-    if "nebula" in prompt_lower:
-        return "Space"
-    elif "particles" in prompt_lower or "smoke" in prompt_lower:
-        return "Minimal"
-    elif "electric" in prompt_lower or "hexagonal" in prompt_lower or "energy" in prompt_lower:
-        return "Cyberpunk"
-    elif "crystal" in prompt_lower or "glass" in prompt_lower or "silk" in prompt_lower:
-        return "Fantasy"
-    elif "liquid" in prompt_lower:
-        return "Nature"
-    else:
-        return "AMOLED"
-
-
 def generate_prompts(count=10):
     history = load_history()
     old_prompts = {item["prompt"] for item in history}
     generated = []
 
     while len(generated) < count:
-        prompt = create_prompt()
+        category = random.choice(CATEGORIES)
+        prompt = create_prompt_for_category(category)
         if prompt in old_prompts:
             continue
 
-        category = get_category_by_subject(prompt)
-
         wallpaper = {
             "id": len(history) + 1,
-            "title": f"AMOLED {len(history)+1:03}",
+            "title": f"{category} {len(history)+1:03}",
             "category": category,
             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "status": "pending",

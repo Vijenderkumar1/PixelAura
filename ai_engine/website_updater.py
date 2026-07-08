@@ -52,12 +52,27 @@ def update_website():
     wallpapers = []
     history_updated = False
 
+    # Migrate older AMOLED wallpapers to dynamic categories,
+    # but preserve correct category for newly generated wallpapers
     for item in history:
-        prompt = item.get("prompt", "")
-        new_category = get_category_by_subject(prompt)
-        if item.get("category") != new_category:
-            item["category"] = new_category
-            history_updated = True
+        category = item.get("category", "")
+        # If the category is AMOLED but the title matches AMOLED 0xx (indicating it's from the old run),
+        # migrate it dynamically to diversify the starting library.
+        if not category or category == "AMOLED":
+            title = item.get("title", "")
+            # Only migrate older numbered wallpapers (e.g. "AMOLED 001" to "AMOLED 070")
+            # to prevent overwriting new category-specific generations
+            try:
+                num_part = int(title.split()[-1])
+                if num_part <= 70:
+                    prompt = item.get("prompt", "")
+                    new_category = get_category_by_subject(prompt)
+                    if category != new_category:
+                        item["category"] = new_category
+                        item["title"] = f"{new_category} {num_part:03}"
+                        history_updated = True
+            except (ValueError, IndexError):
+                pass
 
     if history_updated:
         with open(HISTORY_FILE, "w", encoding="utf-8") as file:
