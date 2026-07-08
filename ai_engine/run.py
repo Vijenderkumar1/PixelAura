@@ -9,7 +9,8 @@ print("=" * 60)
 print("        PixelAura AI Engine v1.0")
 print("=" * 60)
 
-generate_prompts()
+# Generate 10 new prompts for EACH of the 20 categories
+generate_prompts(10)
 
 queue = JobQueue()
 manager = ImageManager()
@@ -30,11 +31,12 @@ output_dir.mkdir(parents=True, exist_ok=True)
 
 for job in pending:
 
-    print(f"Generating {job['title']}...")
+    category_slug = job["category"].lower().replace(" ", "_")
+    filename = f"{category_slug}_{job['id']:04}.png"
+
+    print(f"Generating {job['title']} ({job['category']})...")
 
     queue.generating(job["id"])
-
-    filename = f"amoled_{job['id']:04}.png"
 
     output_file = output_dir / filename
 

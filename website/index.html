@@ -59,7 +59,7 @@
 </div>
 <div class="stat-divider"></div>
 <div class="stat">
-<span class="stat-num">10</span>
+<span class="stat-num">20</span>
 <span class="stat-label">Categories</span>
 </div>
 <div class="stat-divider"></div>
@@ -99,7 +99,7 @@
   <span class="result-count" id="result-count"></span>
 </div>
 
-<!-- Category Pills -->
+<!-- Category Pills (Smooth Scrollable Container) -->
 <div class="cat-row reveal">
 <button class="cat-pill active" onclick="filterCat(this,'all')">All</button>
 <button class="cat-pill" onclick="filterCat(this,'amoled')">AMOLED</button>
@@ -108,16 +108,23 @@
 <button class="cat-pill" onclick="filterCat(this,'cyberpunk')">Cyberpunk</button>
 <button class="cat-pill" onclick="filterCat(this,'minimal')">Minimal</button>
 <button class="cat-pill" onclick="filterCat(this,'fantasy')">Fantasy</button>
+<button class="cat-pill" onclick="filterCat(this,'ocean')">Ocean</button>
+<button class="cat-pill" onclick="filterCat(this,'galaxy')">Galaxy</button>
+<button class="cat-pill" onclick="filterCat(this,'cars')">Cars</button>
+<button class="cat-pill" onclick="filterCat(this,'forest')">Forest</button>
+<button class="cat-pill" onclick="filterCat(this,'anime')">Anime</button>
+<button class="cat-pill" onclick="filterCat(this,'abstract')">Abstract</button>
+<button class="cat-pill" onclick="filterCat(this,'neon')">Neon</button>
+<button class="cat-pill" onclick="filterCat(this,'tech')">Tech</button>
+<button class="cat-pill" onclick="filterCat(this,'texture')">Texture</button>
+<button class="cat-pill" onclick="filterCat(this,'architecture')">Architecture</button>
+<button class="cat-pill" onclick="filterCat(this,'retro')">Retro</button>
+<button class="cat-pill" onclick="filterCat(this,'pastel')">Pastel</button>
+<button class="cat-pill" onclick="filterCat(this,'aurora')">Aurora</button>
+<button class="cat-pill" onclick="filterCat(this,'3d render')">3D Render</button>
 </div>
 
-<!--
-  BUG FIX: The .reveal class was removed from this div.
-  Root cause: .reveal starts at opacity:0. The IntersectionObserver
-  runs synchronously at page load when the gallery is empty (height=0).
-  An element with height=0 can never satisfy threshold:0.1 (10% visible),
-  so .visible is never added and the gallery stays invisible forever,
-  even after 68 cards are injected asynchronously.
--->
+<!-- Gallery Grid -->
 <div class="gallery" id="gallery">
 </div>
 
@@ -132,16 +139,26 @@
 <h2 class="section-title reveal">Explore by category</h2>
 <p class="section-sub reveal">From deep AMOLED blacks to vivid galaxies — every aesthetic has a home here.</p>
 <div class="cat-grid reveal">
-<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">AMOLED</span><span class="cat-card-count">80+</span></div>
-<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Space</span><span class="cat-card-count">65+</span></div>
-<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Nature</span><span class="cat-card-count">70+</span></div>
-<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Cyberpunk</span><span class="cat-card-count">55+</span></div>
-<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Minimal</span><span class="cat-card-count">60+</span></div>
-<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Fantasy</span><span class="cat-card-count">75+</span></div>
-<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Ocean</span><span class="cat-card-count">45+</span></div>
-<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">Galaxy</span><span class="cat-card-count">50+</span></div>
-<div class="cat-card"><div class="cat-card-bg g10"></div><span class="cat-card-label">Cars</span><span class="cat-card-count">40+</span></div>
-<div class="cat-card"><div class="cat-card-bg g8"></div><span class="cat-card-label">Forest</span><span class="cat-card-count">35+</span></div>
+<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">AMOLED</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Space</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Nature</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Cyberpunk</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Minimal</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Fantasy</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Ocean</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">Galaxy</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g10"></div><span class="cat-card-label">Cars</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g8"></div><span class="cat-card-label">Forest</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g2"></div><span class="cat-card-label">Anime</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g11"></div><span class="cat-card-label">Abstract</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">Neon</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Tech</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Texture</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Architecture</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Retro</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Pastel</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Aurora</span><span class="cat-card-count">0</span></div>
+<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">3D Render</span><span class="cat-card-count">0</span></div>
 </div>
 </section>
 <hr class="divider"/>

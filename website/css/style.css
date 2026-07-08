@@ -418,14 +418,26 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
   flex-shrink: 0;
 }
 
-/* ── CATEGORY PILLS ── */
+/* ── CATEGORY PILLS (Smooth Scroll Container) ── */
 .cat-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 10px;
   margin: 20px 0 32px;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
 }
+.cat-row::-webkit-scrollbar {
+  height: 4px;
+}
+.cat-row::-webkit-scrollbar-thumb {
+  background: var(--border2);
+  border-radius: 99px;
+}
+
 .cat-pill {
+  flex-shrink: 0;
   padding: 8px 18px;
   border-radius: 99px;
   border: 1px solid var(--border2);
