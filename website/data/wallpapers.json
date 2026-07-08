@@ -790,5 +790,86 @@
         "download": "assets/images/generated/amoled_0090.png",
         "provider": "",
         "date": "2026-07-08 09:38:56"
+    },
+    {
+        "id": 92,
+        "title": "Space 092",
+        "category": "Space",
+        "image": "assets/images/generated/amoled_0092.png",
+        "download": "assets/images/generated/amoled_0092.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 93,
+        "title": "Cyberpunk 093",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/amoled_0093.png",
+        "download": "assets/images/generated/amoled_0093.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 94,
+        "title": "Cyberpunk 094",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/amoled_0094.png",
+        "download": "assets/images/generated/amoled_0094.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 95,
+        "title": "Minimal 095",
+        "category": "Minimal",
+        "image": "assets/images/generated/amoled_0095.png",
+        "download": "assets/images/generated/amoled_0095.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 96,
+        "title": "AMOLED 096",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0096.png",
+        "download": "assets/images/generated/amoled_0096.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 97,
+        "title": "Nature 097",
+        "category": "Nature",
+        "image": "assets/images/generated/amoled_0097.png",
+        "download": "assets/images/generated/amoled_0097.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 98,
+        "title": "Minimal 098",
+        "category": "Minimal",
+        "image": "assets/images/generated/amoled_0098.png",
+        "download": "assets/images/generated/amoled_0098.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 99,
+        "title": "Space 099",
+        "category": "Space",
+        "image": "assets/images/generated/amoled_0099.png",
+        "download": "assets/images/generated/amoled_0099.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
+    },
+    {
+        "id": 100,
+        "title": "Minimal 100",
+        "category": "Minimal",
+        "image": "assets/images/generated/amoled_0100.png",
+        "download": "assets/images/generated/amoled_0100.png",
+        "provider": "",
+        "date": "2026-07-08 10:10:51"
     }
 ]
