@@ -1,0 +1,115 @@
+name: 🎨 Daily Wallpapers + Deploy
+
+# ─────────────────────────────────────────────────────────────────
+# Triggers:
+#   • Every day at 6:00 AM IST (12:30 AM UTC) automatically
+#   • Manually via GitHub UI → Actions → Run workflow
+# ─────────────────────────────────────────────────────────────────
+on:
+  schedule:
+    - cron: '30 0 * * *'   # 12:30 AM UTC = 6:00 AM IST, every day
+  workflow_dispatch:         # Manual trigger button in GitHub Actions UI
+
+# ─────────────────────────────────────────────────────────────────
+# JOB 1 — Generate 10 new wallpapers and commit them back to main
+# JOB 2 — Deploy the website/ folder to GitHub Pages
+# ─────────────────────────────────────────────────────────────────
+
+jobs:
+
+  # ╔══════════════════════════════════════════════════════════════╗
+  # ║  JOB 1 · Generate Wallpapers                                ║
+  # ╚══════════════════════════════════════════════════════════════╝
+  generate:
+    name: Generate Wallpapers
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write          # needed to git push back to main
+
+    steps:
+
+      # 1. Check out the full repo (with all history so
+      #    prompts.json deduplication works correctly)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Set up Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      # 3. Install only what the engine actually needs
+      - name: Install dependencies
+        run: pip install -r ai_engine/requirements.txt
+
+      # 4. Run the AI engine
+      #    Must cd into ai_engine/ because run.py uses local imports
+      - name: Run AI Engine
+        run: |
+          cd ai_engine
+          python run.py
+
+      # 5. Commit the three files that change each run:
+      #      • ai_engine/history/prompts.json  → deduplication log
+      #      • website/assets/images/generated/ → new PNG files
+      #      • website/data/wallpapers.json      → updated gallery data
+      #    If nothing changed (e.g. all jobs failed), skip the commit.
+      - name: Commit new wallpapers to main
+        run: |
+          git config user.name  "PixelAura Bot 🤖"
+          git config user.email "bot@pixelaura.app"
+
+          git add \
+            ai_engine/history/prompts.json \
+            website/assets/images/generated/ \
+            website/data/wallpapers.json
+
+          git diff --staged --quiet \
+            && echo "⚠️  No new files to commit — skipping." \
+            || git commit -m "🎨 Daily wallpapers — $(date +'%d %b %Y')"
+
+          git push
+
+  # ╔══════════════════════════════════════════════════════════════╗
+  # ║  JOB 2 · Deploy to GitHub Pages                             ║
+  # ╚══════════════════════════════════════════════════════════════╝
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: generate            # always run after generate job finishes
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+
+      # Re-checkout after the generate job committed new files
+      - name: Checkout repository (post-generate)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Tell GitHub Pages about this deployment
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Package the entire website/ folder as the Pages artifact
+      - name: Upload website/ as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/
+
+      # Publish to GitHub Pages — outputs the live URL
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="PixelAura – Premium AI Wallpapers. Download stunning 4K AI-generated wallpapers for any device. Free &amp; premium packs available." name="description"/>
+<title>PixelAura – Premium AI Wallpapers</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+
+<link href="css/style.css" rel="stylesheet"/></head>
+<body>
+<!-- NAV -->
+<nav class="nav" id="nav">
+<a class="nav-logo" href="#">PixelAura</a>
+<ul class="nav-links">
+<li><a href="#wallpapers">Wallpapers</a></li>
+<li><a href="#categories">Categories</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+<a class="nav-cta" href="#pricing">Get Premium</a>
+<button aria-label="Menu" class="nav-hamburger">☰</button>
+</nav>
+<!-- HERO -->
+<section class="hero">
+<div class="aurora aurora-1"></div>
+<div class="aurora aurora-2"></div>
+<div class="aurora aurora-3"></div>
+<div class="hero-badge">
+<div class="badge-dot"></div>
+    500+ AI Wallpapers Available
+  </div>
+<h1>Your screen<br/>deserves <em>better</em></h1>
+<p class="hero-sub">Premium AI-generated wallpapers for phones, desktops, and tablets. Stunning 4K visuals — free and premium packs.</p>
+<div class="hero-actions">
+<a class="btn-primary" href="#wallpapers">
+      ↓ Browse Free Wallpapers
+    </a>
+<a class="btn-ghost" href="#pricing">
+      View Premium Packs
+    </a>
+</div>
+<div class="hero-preview">
+<div class="wp-card wp-1"></div>
+<div class="wp-card wp-2"></div>
+<div class="wp-card wp-3"></div>
+<div class="wp-card wp-4"></div>
+<div class="wp-card wp-5"></div>
+</div>
+</section>
+<!-- STATS -->
+<div class="stats-bar reveal">
+<div class="stat">
+<span class="stat-num" id="stat-total">—</span>
+<span class="stat-label">Wallpapers</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat">
+<span class="stat-num">10</span>
+<span class="stat-label">Categories</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat">
+<span class="stat-num">4K</span>
+<span class="stat-label">Resolution</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat">
+<span class="stat-num">100%</span>
+<span class="stat-label">AI Generated</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat">
+<span class="stat-num">Free</span>
+<span class="stat-label">To Start</span>
+</div>
+</div>
+<!-- WALLPAPERS -->
+<section id="wallpapers">
+<span class="eyebrow reveal">Gallery</span>
+<h2 class="section-title reveal">Browse wallpapers</h2>
+<p class="section-sub reveal">Hand-picked AI generations across every style. New wallpapers added weekly.</p>
+
+<!-- Search + Result Count -->
+<div class="search-row reveal">
+  <div class="search-bar">
+    <span class="search-icon">⌕</span>
+    <input
+      id="search-input"
+      class="search-input"
+      type="text"
+      placeholder="Search wallpapers…"
+      autocomplete="off"
+    >
+  </div>
+  <span class="result-count" id="result-count"></span>
+</div>
+
+<!-- Category Pills -->
+<div class="cat-row reveal">
+<button class="cat-pill active" onclick="filterCat(this,'all')">All</button>
+<button class="cat-pill" onclick="filterCat(this,'amoled')">AMOLED</button>
+<button class="cat-pill" onclick="filterCat(this,'space')">Space</button>
+<button class="cat-pill" onclick="filterCat(this,'nature')">Nature</button>
+<button class="cat-pill" onclick="filterCat(this,'cyberpunk')">Cyberpunk</button>
+<button class="cat-pill" onclick="filterCat(this,'minimal')">Minimal</button>
+<button class="cat-pill" onclick="filterCat(this,'fantasy')">Fantasy</button>
+</div>
+
+<!--
+  BUG FIX: The .reveal class was removed from this div.
+  Root cause: .reveal starts at opacity:0. The IntersectionObserver
+  runs synchronously at page load when the gallery is empty (height=0).
+  An element with height=0 can never satisfy threshold:0.1 (10% visible),
+  so .visible is never added and the gallery stays invisible forever,
+  even after 68 cards are injected asynchronously.
+-->
+<div class="gallery" id="gallery">
+</div>
+
+<!-- Pagination -->
+<div class="pagination" id="pagination"></div>
+
+</section>
+<hr class="divider"/>
+<!-- CATEGORIES -->
+<section id="categories">
+<span class="eyebrow reveal">Collections</span>
+<h2 class="section-title reveal">Explore by category</h2>
+<p class="section-sub reveal">From deep AMOLED blacks to vivid galaxies — every aesthetic has a home here.</p>
+<div class="cat-grid reveal">
+<div class="cat-card"><div class="cat-card-bg g1"></div><span class="cat-card-label">AMOLED</span><span class="cat-card-count">80+</span></div>
+<div class="cat-card"><div class="cat-card-bg g7"></div><span class="cat-card-label">Space</span><span class="cat-card-count">65+</span></div>
+<div class="cat-card"><div class="cat-card-bg g5"></div><span class="cat-card-label">Nature</span><span class="cat-card-count">70+</span></div>
+<div class="cat-card"><div class="cat-card-bg g4"></div><span class="cat-card-label">Cyberpunk</span><span class="cat-card-count">55+</span></div>
+<div class="cat-card"><div class="cat-card-bg g6"></div><span class="cat-card-label">Minimal</span><span class="cat-card-count">60+</span></div>
+<div class="cat-card"><div class="cat-card-bg g3"></div><span class="cat-card-label">Fantasy</span><span class="cat-card-count">75+</span></div>
+<div class="cat-card"><div class="cat-card-bg g9"></div><span class="cat-card-label">Ocean</span><span class="cat-card-count">45+</span></div>
+<div class="cat-card"><div class="cat-card-bg g12"></div><span class="cat-card-label">Galaxy</span><span class="cat-card-count">50+</span></div>
+<div class="cat-card"><div class="cat-card-bg g10"></div><span class="cat-card-label">Cars</span><span class="cat-card-count">40+</span></div>
+<div class="cat-card"><div class="cat-card-bg g8"></div><span class="cat-card-label">Forest</span><span class="cat-card-count">35+</span></div>
+</div>
+</section>
+<hr class="divider"/>
+<!-- HOW IT WORKS -->
+<section>
+<span class="eyebrow reveal">How it works</span>
+<h2 class="section-title reveal">Download in seconds</h2>
+<p class="section-sub reveal">No account needed for free wallpapers. Premium packs unlock instantly after purchase.</p>
+<div class="steps reveal">
+<div class="step">
+<div class="step-num">01</div>
+<h3>Browse</h3>
+<p>Explore 500+ AI-generated wallpapers across 10 categories. Filter by style, color, or device.</p>
+</div>
+<div class="step">
+<div class="step-num">02</div>
+<h3>Pick</h3>
+<p>Find your perfect wallpaper. Free packs need no account. Premium packs unlock with one payment.</p>
+</div>
+<div class="step">
+<div class="step-num">03</div>
+<h3>Download</h3>
+<p>Get full 4K resolution files instantly. Compatible with any phone, tablet, or desktop.</p>
+</div>
+<div class="step">
+<div class="step-num">04</div>
+<h3>Enjoy</h3>
+<p>Set it and enjoy a screen that looks like art. New wallpapers drop every week.</p>
+</div>
+</div>
+</section>
+<hr class="divider"/>
+<!-- PRICING -->
+<section id="pricing">
+<span class="eyebrow reveal">Pricing</span>
+<h2 class="section-title reveal">Start free, go premium</h2>
+<p class="section-sub reveal">No subscriptions. Pay once, own forever.</p>
+<div class="pricing-grid reveal">
+<div class="price-card">
+<div>
+<div class="price-name">Free</div>
+<div class="price-amount">₹0 <span>forever</span></div>
+<div class="price-desc">10 hand-picked wallpapers across all categories. No account needed.</div>
+</div>
+<ul class="price-features">
+<li>10 free wallpapers</li>
+<li>All categories</li>
+<li>1080p resolution</li>
+<li>Instant download</li>
+</ul>
+<a class="price-btn secondary" href="#wallpapers">Download Free</a>
+</div>
+<div class="price-card">
+<div>
+<div class="price-name">Nature Pack</div>
+<div class="price-amount">₹99 <span>one-time</span></div>
+<div class="price-desc">50 stunning AI nature wallpapers — forests, oceans, sunsets, and more.</div>
+</div>
+<ul class="price-features">
+<li>50 wallpapers</li>
+<li>4K resolution</li>
+<li>Instant download</li>
+<li>Lifetime access</li>
+</ul>
+<a class="price-btn secondary" href="#">Get Nature Pack</a>
+</div>
+<div class="price-card featured">
+<div>
+<div class="price-name">Ultimate Bundle</div>
+<div class="price-amount">₹299 <span>one-time</span></div>
+<div class="price-desc">200+ wallpapers across all 10 categories. The complete PixelAura collection.</div>
+</div>
+<ul class="price-features">
+<li>200+ wallpapers</li>
+<li>All 10 categories</li>
+<li>4K resolution</li>
+<li>Lifetime access</li>
+<li>Free future packs</li>
+<li>Priority support</li>
+</ul>
+<a class="price-btn primary" href="#">Get Ultimate Bundle</a>
+</div>
+<div class="price-card">
+<div>
+<div class="price-name">AMOLED Pack</div>
+<div class="price-amount">₹99 <span>one-time</span></div>
+<div class="price-desc">50 deep black AMOLED wallpapers — perfect for OLED screens and battery saving.</div>
+</div>
+<ul class="price-features">
+<li>50 wallpapers</li>
+<li>4K resolution</li>
+<li>OLED optimised</li>
+<li>Lifetime access</li>
+</ul>
+<a class="price-btn secondary" href="#">Get AMOLED Pack</a>
+</div>
+</div>
+</section>
+<!-- CTA BANNER -->
+<div class="cta-banner reveal">
+<h2>Ready for a better screen?</h2>
+<p>Download 10 free wallpapers right now — no account needed.</p>
+<a class="btn-primary" href="#wallpapers">Browse Free Wallpapers →</a>
+</div>
+<!-- FOOTER -->
+<footer id="about">
+<div class="footer-inner">
+<div>
+<span class="footer-logo">PixelAura</span>
+<p class="footer-desc">Premium AI-generated wallpapers for every device and aesthetic. New drops every week.</p>
+</div>
+<div class="footer-col">
+<h4>Wallpapers</h4>
+<ul>
+<li><a href="#">AMOLED</a></li>
+<li><a href="#">Space</a></li>
+<li><a href="#">Nature</a></li>
+<li><a href="#">Cyberpunk</a></li>
+<li><a href="#">Minimal</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Shop</h4>
+<ul>
+<li><a href="#">Free Pack</a></li>
+<li><a href="#">Nature Pack</a></li>
+<li><a href="#">AMOLED Pack</a></li>
+<li><a href="#">Ultimate Bundle</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<ul>
+<li><a href="https://www.instagram.com/itz_vijender1/" target="_blank">Instagram</a></li>
+<li><a href="https://www.linkedin.com/in/vijenderkumar15/" target="_blank">LinkedIn</a></li>
+<li><a href="https://www.youtube.com/@TinyTales-41" target="_blank">YouTube</a></li>
+<li><a href="#">Pinterest</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 PixelAura. All rights reserved. Built by Vijender Kumar.</p>
+<div class="social-links">
+<a href="https://www.instagram.com/itz_vijender1/" target="_blank" title="Instagram">📸</a>
+<a href="https://www.linkedin.com/in/vijenderkumar15/" target="_blank" title="LinkedIn">💼</a>
+<a href="https://www.youtube.com/@TinyTales-41" target="_blank" title="YouTube">▶️</a>
+</div>
+</div>
+</footer>
+
+<script src="js/app.js"></script></body>
+</html>
