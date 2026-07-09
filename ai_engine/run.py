@@ -34,7 +34,7 @@ output_dir.mkdir(parents=True, exist_ok=True)
 for job in pending:
 
     category_slug = job["category"].lower().replace(" ", "_")
-    filename = f"{category_slug}_{job['id']:04}.png"
+    filename = f"{category_slug}_{job['id']:04}.webp"
 
     print(f"Generating {job['title']} ({job['category']})...")
 

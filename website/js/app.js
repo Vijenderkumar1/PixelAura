@@ -1,6 +1,151 @@
-// ===============================
-// PixelAura — app.js v2.1 (fixed)
-// ===============================
+// ==========================================
+// PixelAura Configuration & Authentication
+// ==========================================
+
+// Google OAuth 2.0 Client ID (Replace with your own from Google Cloud Console if needed)
+const GOOGLE_CLIENT_ID = "1055745163148-pohm3i29a1f5o7m7q7f9rkm4q5n9p2f1.apps.googleusercontent.com"; 
+
+// Google Sheets Script Webhook URL (Paste your URL from GOOGLE_SHEETS_DATABASE_GUIDE.md)
+const SHEETS_WEBHOOK_URL = "YOUR_GOOGLE_SHEETS_WEBHOOK_URL";
+
+let pendingDownload = null;
+
+function getLoggedInUser() {
+    return JSON.parse(localStorage.getItem("pixel_user") || "null");
+}
+
+function openLoginModal() {
+    const modal = document.getElementById("login-modal");
+    if (modal) modal.classList.add("active");
+    initGoogleLoginButton();
+}
+
+function closeLoginModal() {
+    const modal = document.getElementById("login-modal");
+    if (modal) modal.classList.remove("active");
+}
+
+function initGoogleLoginButton() {
+    if (typeof google === "undefined") {
+        console.warn("Google Identity client script not loaded.");
+        return;
+    }
+    google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleCredentialResponse
+    });
+    const btnContainer = document.getElementById("google-login-btn");
+    if (btnContainer) {
+        google.accounts.id.renderButton(
+            btnContainer,
+            { theme: "dark", size: "large", width: 240 }
+        );
+    }
+}
+
+function handleCredentialResponse(response) {
+    const payload = parseJwt(response.credential);
+    if (!payload || !payload.email) return;
+    
+    const user = {
+        email: payload.email,
+        name: payload.name || payload.email.split("@")[0],
+        picture: payload.picture || ""
+    };
+    
+    localStorage.setItem("pixel_user", JSON.stringify(user));
+    logUserSession(user.email, user.name);
+    
+    closeLoginModal();
+    updateAuthUI();
+    
+    // If user was waiting to download a file, proceed now
+    if (pendingDownload) {
+        const { url, filename } = pendingDownload;
+        pendingDownload = null;
+        const dl = document.createElement("a");
+        dl.href = url;
+        dl.download = filename;
+        document.body.appendChild(dl);
+        dl.click();
+        document.body.removeChild(dl);
+    }
+}
+
+function parseJwt(token) {
+    try {
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = decodeURIComponent(window.atob(base64).split("").map(c => {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(""));
+        return JSON.parse(jsonPayload);
+    } catch (e) {
+        return null;
+    }
+}
+
+function logUserSession(email, name) {
+    if (!SHEETS_WEBHOOK_URL || SHEETS_WEBHOOK_URL.includes("YOUR_GOOGLE_SHEETS")) return;
+    fetch(SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name })
+    }).catch(e => console.error("Database log error:", e));
+}
+
+function updateAuthUI() {
+    const container = document.getElementById("nav-auth-container");
+    if (!container) return;
+    
+    const user = getLoggedInUser();
+    if (user) {
+        container.innerHTML = `
+            <div class="nav-user-profile">
+                ${user.picture ? `<img class="nav-user-avatar" src="${user.picture}" alt="${user.name}">` : `<div class="nav-user-avatar" style="background:#7B4FFF; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff;">${user.name[0].toUpperCase()}</div>`}
+                <button class="nav-logout-btn" onclick="logoutUser()">Sign Out</button>
+            </div>
+        `;
+    } else {
+        container.innerHTML = `
+            <button class="nav-login-btn" onclick="openLoginModal()">Sign In</button>
+        `;
+    }
+}
+
+function logoutUser() {
+    localStorage.removeItem("pixel_user");
+    updateAuthUI();
+}
+
+function handleDownload(event, url, filename) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const user = getLoggedInUser();
+    if (!user) {
+        pendingDownload = { url, filename };
+        openLoginModal();
+        return;
+    }
+    
+    const dl = document.createElement("a");
+    dl.href = url;
+    dl.download = filename;
+    document.body.appendChild(dl);
+    dl.click();
+    document.body.removeChild(dl);
+}
+
+// Export functions to global scope
+window.openLoginModal = openLoginModal;
+window.closeLoginModal = closeLoginModal;
+window.logoutUser = logoutUser;
+window.handleDownload = handleDownload;
+
+// ==========================================
+
 
 // ── NAV scroll glass effect ──
 const nav = document.getElementById("nav");
@@ -50,6 +195,7 @@ let drawerPage     = 1;
 
 async function loadWallpapers() {
     try {
+        updateAuthUI();
         const response = await fetch("data/wallpapers.json");
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         wallpapers = await response.json();
@@ -214,7 +360,7 @@ function renderDrawerGallery() {
             <div class="gallery-card-overlay" oncontextmenu="return false;">
                 <span class="gallery-tag">${item.category}</span>
                 ${hasAccess
-                    ? `<a class="download-btn" href="${item.download}" download="${item.title}" onclick="event.stopPropagation()">↓ Download</a>`
+                    ? `<button class="download-btn" onclick="handleDownload(event, '${item.download}', '${item.title}')">↓ Download</button>`
                     : `<button class="download-btn" onclick="openPaymentModal('${item.category}','${item.title}');event.stopPropagation();">🔒 Unlock</button>`
                 }
             </div>
@@ -252,12 +398,16 @@ function changeDrawerPage(page) {
 document.getElementById("cat-drawer").addEventListener("click", (e) => {
     if (e.target.id === "cat-drawer") closeDrawer();
 });
+document.getElementById("login-modal").addEventListener("click", (e) => {
+    if (e.target.id === "login-modal") closeLoginModal();
+});
 
 // Close on Escape
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeDrawer();
         closePaymentModal();
+        closeLoginModal();
     }
 });
 
@@ -329,7 +479,7 @@ function renderGallery() {
             <div class="gallery-card-overlay" oncontextmenu="return false;">
                 <span class="gallery-tag">${item.category}</span>
                 ${hasAccess
-                    ? `<a class="download-btn" href="${item.download}" download="${item.title}" onclick="event.stopPropagation()">↓ Download</a>`
+                    ? `<button class="download-btn" onclick="handleDownload(event, '${item.download}', '${item.title}')">↓ Download</button>`
                     : `<button class="download-btn" style="background:var(--grad);" onclick="openPaymentModal('${item.category}','${item.title}');event.stopPropagation();">🔒 Unlock</button>`
                 }
             </div>

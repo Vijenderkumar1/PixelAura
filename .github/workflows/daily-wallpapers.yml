@@ -67,6 +67,7 @@ jobs:
           git add \
             ai_engine/history/prompts.json \
             website/assets/images/generated/ \
+            website/assets/bundles/ \
             website/data/wallpapers.json
 
           git diff --staged --quiet \

@@ -2,6 +2,16 @@
 
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Download stunning 4K AI-generated wallpapers and premium mobile packs for your phone, desktop, and tablet. Get instant access to free high-resolution background downloads today." name="description"/>
@@ -64,6 +74,9 @@
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#about">About</a></li>
 </ul>
+<div class="nav-auth" id="nav-auth-container">
+  <button class="nav-login-btn" onclick="openLoginModal()">Sign In</button>
+</div>
 <a class="nav-cta" href="#pricing">Get Premium</a>
 <button aria-label="Menu" class="nav-hamburger">☰</button>
 </nav>
@@ -376,6 +389,21 @@
     <div class="drawer-gallery" id="drawer-gallery"></div>
     <!-- Drawer Pagination -->
     <div class="pagination" id="drawer-pagination" style="margin-top:32px;"></div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-backdrop" id="login-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+    <div class="modal-icon">👋</div>
+    <h3 class="modal-title">Unlock Unlimited Downloads</h3>
+    <p class="modal-desc">
+      Sign in with Google to download free wallpapers instantly and access your premium collections.
+    </p>
+    <div style="display: flex; justify-content: center; margin-top: 20px;" id="google-login-btn-wrapper">
+      <div id="google-login-btn"></div>
+    </div>
   </div>
 </div>
 

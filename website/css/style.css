@@ -113,6 +113,51 @@ body::before {
 .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 .nav-hamburger { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; }
 
+/* ── NAV AUTH ── */
+.nav-auth {
+  display: flex;
+  align-items: center;
+}
+.nav-login-btn {
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 7px 18px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.nav-login-btn:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.03);
+}
+.nav-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.nav-logout-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-logout-btn:hover {
+  color: #FF5A5A;
+}
+
 /* Mobile nav open state */
 @media (max-width: 640px) {
   .nav-links.open {

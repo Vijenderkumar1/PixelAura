@@ -1,5 +1,7 @@
 import requests
 from urllib.parse import quote
+from PIL import Image
+import io
 
 
 class PollinationsProvider:
@@ -14,8 +16,10 @@ class PollinationsProvider:
 
         response.raise_for_status()
 
-        with open(output_file, "wb") as file:
-
-            file.write(response.content)
+        # Parse downloaded image and save as compressed WebP format
+        img = Image.open(io.BytesIO(response.content))
+        if img.mode in ("RGBA", "LA"):
+            img = img.convert("RGB")
+        img.save(output_file, "WEBP", quality=85)
 
         return output_file
