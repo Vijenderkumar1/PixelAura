@@ -1915,5 +1915,185 @@
         "download": "assets/images/generated/cyberpunk_0580.png",
         "provider": "",
         "date": "2026-07-09 06:58:47"
+    },
+    {
+        "id": 581,
+        "title": "AMOLED 581",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0581.png",
+        "download": "assets/images/generated/amoled_0581.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 582,
+        "title": "AMOLED 582",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0582.png",
+        "download": "assets/images/generated/amoled_0582.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 583,
+        "title": "AMOLED 583",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0583.png",
+        "download": "assets/images/generated/amoled_0583.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 584,
+        "title": "AMOLED 584",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0584.png",
+        "download": "assets/images/generated/amoled_0584.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 585,
+        "title": "AMOLED 585",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_0585.png",
+        "download": "assets/images/generated/amoled_0585.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 586,
+        "title": "Space 586",
+        "category": "Space",
+        "image": "assets/images/generated/space_0586.png",
+        "download": "assets/images/generated/space_0586.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 587,
+        "title": "Space 587",
+        "category": "Space",
+        "image": "assets/images/generated/space_0587.png",
+        "download": "assets/images/generated/space_0587.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 588,
+        "title": "Space 588",
+        "category": "Space",
+        "image": "assets/images/generated/space_0588.png",
+        "download": "assets/images/generated/space_0588.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 589,
+        "title": "Space 589",
+        "category": "Space",
+        "image": "assets/images/generated/space_0589.png",
+        "download": "assets/images/generated/space_0589.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 590,
+        "title": "Space 590",
+        "category": "Space",
+        "image": "assets/images/generated/space_0590.png",
+        "download": "assets/images/generated/space_0590.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 591,
+        "title": "Nature 591",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_0591.png",
+        "download": "assets/images/generated/nature_0591.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 592,
+        "title": "Nature 592",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_0592.png",
+        "download": "assets/images/generated/nature_0592.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 593,
+        "title": "Nature 593",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_0593.png",
+        "download": "assets/images/generated/nature_0593.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 594,
+        "title": "Nature 594",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_0594.png",
+        "download": "assets/images/generated/nature_0594.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 595,
+        "title": "Nature 595",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_0595.png",
+        "download": "assets/images/generated/nature_0595.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 596,
+        "title": "Cyberpunk 596",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_0596.png",
+        "download": "assets/images/generated/cyberpunk_0596.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 597,
+        "title": "Cyberpunk 597",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_0597.png",
+        "download": "assets/images/generated/cyberpunk_0597.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 598,
+        "title": "Cyberpunk 598",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_0598.png",
+        "download": "assets/images/generated/cyberpunk_0598.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 599,
+        "title": "Cyberpunk 599",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_0599.png",
+        "download": "assets/images/generated/cyberpunk_0599.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
+    },
+    {
+        "id": 600,
+        "title": "Cyberpunk 600",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_0600.png",
+        "download": "assets/images/generated/cyberpunk_0600.png",
+        "provider": "",
+        "date": "2026-07-09 04:27:36"
     }
 ]
