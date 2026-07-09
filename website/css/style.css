@@ -993,15 +993,14 @@ footer {
 }
 .social-links a:hover { background: rgba(123,79,255,0.15); border-color: rgba(123,79,255,0.4); color: #B99FFF; }
 .social-svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  transition: transform 0.25s ease;
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 .social-links a:hover .social-svg {
-  transform: scale(1.15);
+  transform: scale(1.18);
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
 }
 
 /* ── CTA BANNER ── */
