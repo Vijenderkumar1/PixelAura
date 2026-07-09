@@ -101,10 +101,16 @@ def update_website():
     # Generate bundles
     BUNDLES_DIR.mkdir(parents=True, exist_ok=True)
 
-    amoled_wallpapers = [w for w in wallpapers if w["category"].lower() == "amoled"]
-    create_zip_bundle(BUNDLES_DIR / "amoled_pack.zip", amoled_wallpapers)
+    CATEGORIES = [
+        "AMOLED", "Space", "Nature", "Cyberpunk", "Minimal", "Fantasy",
+        "Ocean", "Galaxy", "Cars", "Forest", "Anime", "Abstract",
+        "Neon", "Tech", "Texture", "Architecture", "Retro", "Pastel",
+        "Aurora", "3D Render"
+    ]
 
-    nature_wallpapers = [w for w in wallpapers if w["category"].lower() == "nature"]
-    create_zip_bundle(BUNDLES_DIR / "nature_pack.zip", nature_wallpapers)
+    for cat in CATEGORIES:
+        cat_lower = cat.lower().replace(" ", "_")
+        cat_wallpapers = [w for w in wallpapers if w["category"].lower() == cat.lower()]
+        create_zip_bundle(BUNDLES_DIR / f"{cat_lower}_pack.zip", cat_wallpapers)
 
     create_zip_bundle(BUNDLES_DIR / "ultimate_bundle.zip", wallpapers)

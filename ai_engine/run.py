@@ -7,7 +7,7 @@ from website_updater import update_website
 
 print("=" * 60)
 print("        PixelAura AI Engine v2.0")
-print("  🔄 Daily rotation: 4 categories × 5 images = 20/day")
+print("  [Rotating] Daily rotation: 4 categories x 5 images = 20/day")
 print("=" * 60)
 
 # Auto-select today's 4 categories from the 20-category rotation
@@ -48,7 +48,7 @@ for job in pending:
 
         queue.completed(job["id"], filename)
 
-        print(f"✓ {filename}")
+        print(f"[SUCCESS] {filename}")
 
     except Exception as e:
 

@@ -473,7 +473,7 @@ function processMockPayment(type) {
             zipName = "ultimate_bundle.zip";
             unlockCategory("ultimate");
         } else {
-            const catLower = activeCategoryForUnlock.toLowerCase();
+            const catLower = activeCategoryForUnlock.toLowerCase().replace(/\s+/g, '_');
             zipUrl  = `assets/bundles/${catLower}_pack.zip`;
             zipName = `${catLower}_pack.zip`;
             unlockCategory(catLower);

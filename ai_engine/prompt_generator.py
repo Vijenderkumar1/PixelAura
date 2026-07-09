@@ -217,8 +217,8 @@ def generate_prompts(count_per_category=5, categories=None):
     old_prompts = {item["prompt"] for item in history}
     generated   = []
 
-    print(f"\n📅 Today's categories: {', '.join(categories)}")
-    print(f"🎨 Generating {count_per_category} wallpapers each = {count_per_category * len(categories)} total\n")
+    print(f"\n[Today's categories]: {', '.join(categories)}")
+    print(f"[Generating]: {count_per_category} wallpapers each = {count_per_category * len(categories)} total\n")
 
     for category in categories:
         category_generated = 0

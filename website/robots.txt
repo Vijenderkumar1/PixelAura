@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vijenderkumar1.github.io/PixelAura/sitemap.xml
