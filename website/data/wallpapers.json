@@ -3841,5 +3841,185 @@
         "download": "assets/images/generated/cyberpunk_0800.webp",
         "provider": "",
         "date": "2026-07-19 04:02:11"
+    },
+    {
+        "id": 801,
+        "title": "Minimal 801",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_0801.webp",
+        "download": "assets/images/generated/minimal_0801.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 802,
+        "title": "Minimal 802",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_0802.webp",
+        "download": "assets/images/generated/minimal_0802.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 803,
+        "title": "Minimal 803",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_0803.webp",
+        "download": "assets/images/generated/minimal_0803.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 804,
+        "title": "Minimal 804",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_0804.webp",
+        "download": "assets/images/generated/minimal_0804.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 805,
+        "title": "Minimal 805",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_0805.webp",
+        "download": "assets/images/generated/minimal_0805.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 806,
+        "title": "Fantasy 806",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_0806.webp",
+        "download": "assets/images/generated/fantasy_0806.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 807,
+        "title": "Fantasy 807",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_0807.webp",
+        "download": "assets/images/generated/fantasy_0807.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 808,
+        "title": "Fantasy 808",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_0808.webp",
+        "download": "assets/images/generated/fantasy_0808.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 809,
+        "title": "Fantasy 809",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_0809.webp",
+        "download": "assets/images/generated/fantasy_0809.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 810,
+        "title": "Fantasy 810",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_0810.webp",
+        "download": "assets/images/generated/fantasy_0810.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 811,
+        "title": "Ocean 811",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_0811.webp",
+        "download": "assets/images/generated/ocean_0811.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 812,
+        "title": "Ocean 812",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_0812.webp",
+        "download": "assets/images/generated/ocean_0812.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 813,
+        "title": "Ocean 813",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_0813.webp",
+        "download": "assets/images/generated/ocean_0813.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 814,
+        "title": "Ocean 814",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_0814.webp",
+        "download": "assets/images/generated/ocean_0814.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 815,
+        "title": "Ocean 815",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_0815.webp",
+        "download": "assets/images/generated/ocean_0815.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 816,
+        "title": "Galaxy 816",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_0816.webp",
+        "download": "assets/images/generated/galaxy_0816.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 817,
+        "title": "Galaxy 817",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_0817.webp",
+        "download": "assets/images/generated/galaxy_0817.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 818,
+        "title": "Galaxy 818",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_0818.webp",
+        "download": "assets/images/generated/galaxy_0818.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 819,
+        "title": "Galaxy 819",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_0819.webp",
+        "download": "assets/images/generated/galaxy_0819.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
+    },
+    {
+        "id": 820,
+        "title": "Galaxy 820",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_0820.webp",
+        "download": "assets/images/generated/galaxy_0820.webp",
+        "provider": "",
+        "date": "2026-07-20 04:12:10"
     }
 ]
