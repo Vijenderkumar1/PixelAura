@@ -3,8 +3,8 @@
         "id": 1,
         "title": "AMOLED 001",
         "category": "Space",
-        "image": "assets/images/generated/amoled_0001.png",
-        "download": "assets/images/generated/amoled_0001.png",
+        "image": "assets/images/generated/amoled_0001.webp",
+        "download": "assets/images/generated/amoled_0001.webp",
         "provider": "",
         "date": "2026-07-08 07:35:39"
     },
@@ -3301,5 +3301,95 @@
         "download": "assets/images/generated/abstract_0740.webp",
         "provider": "",
         "date": "2026-07-16 03:45:27"
+    },
+    {
+        "id": 741,
+        "title": "Krishna 741",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_0741.webp",
+        "download": "assets/images/generated/krishna_0741.webp",
+        "provider": "",
+        "date": "2026-07-16 23:23:26"
+    },
+    {
+        "id": 742,
+        "title": "Krishna 742",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_0742.webp",
+        "download": "assets/images/generated/krishna_0742.webp",
+        "provider": "",
+        "date": "2026-07-16 23:23:26"
+    },
+    {
+        "id": 743,
+        "title": "Krishna 743",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_0743.webp",
+        "download": "assets/images/generated/krishna_0743.webp",
+        "provider": "",
+        "date": "2026-07-16 23:23:26"
+    },
+    {
+        "id": 744,
+        "title": "Krishna 744",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_0744.webp",
+        "download": "assets/images/generated/krishna_0744.webp",
+        "provider": "",
+        "date": "2026-07-16 23:23:26"
+    },
+    {
+        "id": 745,
+        "title": "Krishna 745",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_0745.webp",
+        "download": "assets/images/generated/krishna_0745.webp",
+        "provider": "",
+        "date": "2026-07-16 23:23:26"
+    },
+    {
+        "id": 746,
+        "title": "Anime 746",
+        "category": "Anime",
+        "image": "assets/images/generated/anime_0746.webp",
+        "download": "assets/images/generated/anime_0746.webp",
+        "provider": "",
+        "date": "2026-07-16 23:27:32"
+    },
+    {
+        "id": 747,
+        "title": "Anime 747",
+        "category": "Anime",
+        "image": "assets/images/generated/anime_0747.webp",
+        "download": "assets/images/generated/anime_0747.webp",
+        "provider": "",
+        "date": "2026-07-16 23:27:32"
+    },
+    {
+        "id": 748,
+        "title": "Anime 748",
+        "category": "Anime",
+        "image": "assets/images/generated/anime_0748.webp",
+        "download": "assets/images/generated/anime_0748.webp",
+        "provider": "",
+        "date": "2026-07-16 23:27:32"
+    },
+    {
+        "id": 749,
+        "title": "Anime 749",
+        "category": "Anime",
+        "image": "assets/images/generated/anime_0749.webp",
+        "download": "assets/images/generated/anime_0749.webp",
+        "provider": "",
+        "date": "2026-07-16 23:27:32"
+    },
+    {
+        "id": 750,
+        "title": "Anime 750",
+        "category": "Anime",
+        "image": "assets/images/generated/anime_0750.webp",
+        "download": "assets/images/generated/anime_0750.webp",
+        "provider": "",
+        "date": "2026-07-16 23:27:32"
     }
 ]

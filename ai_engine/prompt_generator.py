@@ -13,7 +13,7 @@ CATEGORIES = [
     "AMOLED", "Space", "Nature", "Cyberpunk", "Minimal", "Fantasy",
     "Ocean", "Galaxy", "Cars", "Forest", "Anime", "Abstract",
     "Neon", "Tech", "Texture", "Architecture", "Retro", "Pastel",
-    "Aurora", "3D Render"
+    "Aurora", "3D Render", "Krishna"
 ]
 
 CATEGORY_ASSETS = {
@@ -88,11 +88,37 @@ CATEGORY_ASSETS = {
         "effects": ["floating forest dust particles", "ethereal fog layers", "glowing water reflections"]
     },
     "Anime": {
-        "subjects": ["cyberpunk anime cityscape silhouette", "cel-shaded floating island", "retro anime mech silhouette", "mystical cherry blossom tree branches", "glowing futuristic anime terminal"],
-        "backgrounds": ["vibrant pastel sky with clouds", "starry retro anime night sky", "sunset over anime city horizon"],
-        "colors": ["cotton candy pink and sky blue", "electric purple and peach", "neon mint and violet"],
-        "lighting": ["soft dreamy sun rays", "glow from a warm twilight horizon", "colorful ambient outline lighting"],
-        "effects": ["floating cherry blossom petals", "hand-drawn cel-shaded outlines", "soft anime light bloom"]
+        "subjects": [
+            "mystical anime samurai warrior leaning against a massive ancient tree trunk, wearing detailed traditional dark armor and a conical straw hat",
+            "cool anime ninja crouching on a pine tree branch, wearing a dark face mask, looking alert",
+            "skilled anime ronin drawing a sharp steel katana, standing in a dynamic ready stance",
+            "scenic anime warrior priestess in traditional red and white robes, holding a paper talisman",
+            "legendary anime samurai silhouette standing on a rocky cliff overlooking a misty mountain valley under a giant blood red moon"
+        ],
+        "backgrounds": [
+            "scenic red maple leaf forest with glowing mist and mossy trees",
+            "vibrant red autumn forest, layers of crimson leaves covering the ground, soft foggy background",
+            "mystical Japanese garden during red autumn leaf season with ancient stone lantern",
+            "dramatic mountain horizon under a glowing crimson sunset sky"
+        ],
+        "colors": [
+            "vibrant crimson red and deep obsidian black",
+            "striking autumn orange, gold and dark charcoal",
+            "glowing red accents and moody dark shadows",
+            "high-contrast red foliage against dark silhouettes"
+        ],
+        "lighting": [
+            "dappled sunlight filtering through red autumn leaves",
+            "dramatic volumetric rim lighting highlighting the warrior",
+            "soft twilight glow with deep casting shadows",
+            "mystical sunbeams breaking through foggy tree branches"
+        ],
+        "effects": [
+            "swirling bright red autumn maple leaves falling in the wind",
+            "soft cinematic depth of field and floating dust particles",
+            "atmospheric mist and gentle leaves drifting around",
+            "sharp cel-shaded details and micro-reflections on the armor"
+        ]
     },
     "Abstract": {
         "subjects": ["flowing liquid glass swirls", "interacting magnetic fields force lines", "twisted chrome dimensional rings", "abstract morphing fluid blob", "complex geometric wireframe"],
@@ -156,6 +182,39 @@ CATEGORY_ASSETS = {
         "colors": ["vibrant teal and warm orange", "bubblegum pink and glossy red", "liquid chrome and matte black", "vibrant violet"],
         "lighting": ["photorealistic studio keylights", "colorful ambient reflections", "clean soft rim lighting"],
         "effects": ["photorealistic octane render style", "glossy plastic material reflections", "micro depth of field blur"]
+    },
+    "Krishna": {
+        "subjects": [
+            "powerful dark silhouette of Lord Krishna standing in a divine posture with a peacock feather in his crown, holding a glowing flute to his lips",
+            "mystical black silhouette of Lord Krishna floating in a celestial stance, peacock feather in his hair, glowing white eyes and a distinct tilak on his forehead",
+            "majestic silhouette profile of Lord Krishna with detailed glowing outlines, holding a flute, peacock feather accents",
+            "divine silhouette of Lord Krishna standing in the iconic tribhanga pose, glowing white eyes, glowing ornaments outlining his form",
+            "epic anime-inspired dark silhouette of Lord Krishna, glowing white eyes and tilak, shimmering outline highlights"
+        ],
+        "backgrounds": [
+            "a massive glowing white moon aura, pitch black background",
+            "deep dark backdrop with a radiant circular glowing white halo behind his head",
+            "pitch black backdrop with a bright celestial glowing halo and floating energy dust",
+            "matte black background with a radiant divine aura and subtle white particles"
+        ],
+        "colors": [
+            "monochrome white outlines and highlights",
+            "glowing white accents",
+            "high-contrast bright white highlights",
+            "pure white radiant outlines"
+        ],
+        "lighting": [
+            "intense backlighting from a glowing halo",
+            "dramatic white rim lighting outlining the silhouette",
+            "bright white edge glow",
+            "mystic celestial white light"
+        ],
+        "effects": [
+            "subtle floating white dust particles and stardust",
+            "soft divine glow and cosmic dust",
+            "high contrast reflections",
+            "delicate glowing sparks"
+        ]
     }
 }
 
@@ -190,7 +249,7 @@ def create_prompt_for_category(category):
     )
 
 
-def get_todays_categories(cats_per_day=4):
+def get_todays_categories(cats_per_day=5):
     """
     Rotate through ALL_CATEGORIES based on today's date.
     Every day a different set of `cats_per_day` categories is chosen.
@@ -205,13 +264,13 @@ def get_todays_categories(cats_per_day=4):
     return chosen
 
 
-def generate_prompts(count_per_category=5, categories=None):
+def generate_prompts(count_per_category=6, categories=None):
     """
     Generate `count_per_category` unique prompts for each category in
     `categories`. If categories is None, today's rotating set is used.
     """
     if categories is None:
-        categories = get_todays_categories()
+        categories = get_todays_categories(cats_per_day=5)
 
     history     = load_history()
     old_prompts = {item["prompt"] for item in history}

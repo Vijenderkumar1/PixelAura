@@ -248,6 +248,7 @@ const ALL_CATEGORIES = [
     { name: "Pastel",       gradient: "g3"  },
     { name: "Aurora",       gradient: "g9"  },
     { name: "3D Render",    gradient: "g12" },
+    { name: "Krishna",      gradient: "g13" },
 ];
 
 function buildCategoryGrid() {

@@ -100,9 +100,12 @@ def generate_rss_feed(wallpapers):
         wp_link = ET.SubElement(item, "link")
         wp_link.text = f"https://pixelauraw.netlify.app/?id={wp['id']}"
 
+        image_url = f"https://pixelauraw.netlify.app/{wp['image']}"
+        mime_type = "image/webp" if image_url.endswith(".webp") else "image/png"
+
         wp_desc = ET.SubElement(item, "description")
         category_name = wp.get("category", "AI Generated")
-        wp_desc.text = f"Download stunning {wp['title']} AI-generated 4K wallpaper in {category_name} style for your phone, desktop, and tablet."
+        wp_desc.text = f'<img src="{image_url}" alt="{wp["title"]}" /><br/><p>Download stunning {wp["title"]} AI-generated 4K wallpaper in {category_name} style for your phone, desktop, and tablet.</p>'
 
         wp_pubdate = ET.SubElement(item, "pubDate")
         wp_pubdate.text = format_rfc822(wp["date"])
@@ -110,20 +113,21 @@ def generate_rss_feed(wallpapers):
         wp_guid = ET.SubElement(item, "guid", {"isPermaLink": "false"})
         wp_guid.text = f"pixel-aura-wallpaper-{wp['id']}"
 
-        image_url = f"https://pixelauraw.netlify.app/{wp['image']}"
-        mime_type = "image/webp" if image_url.endswith(".webp") else "image/png"
-        
         ET.SubElement(item, "enclosure", {
             "url": image_url,
             "length": "0",
             "type": mime_type
         })
 
-        # {http://search.yahoo.com/mrss/}content
+        # Add media:content and media:thumbnail for Pinterest / RSS scrapers
         ET.SubElement(item, "{http://search.yahoo.com/mrss/}content", {
             "url": image_url,
             "medium": "image",
             "type": mime_type
+        })
+
+        ET.SubElement(item, "{http://search.yahoo.com/mrss/}thumbnail", {
+            "url": image_url
         })
 
     rss_xml_path = WEBSITE_DIR / "feed.xml"
@@ -206,7 +210,7 @@ def update_website():
         "AMOLED", "Space", "Nature", "Cyberpunk", "Minimal", "Fantasy",
         "Ocean", "Galaxy", "Cars", "Forest", "Anime", "Abstract",
         "Neon", "Tech", "Texture", "Architecture", "Retro", "Pastel",
-        "Aurora", "3D Render"
+        "Aurora", "3D Render", "Krishna"
     ]
 
     for cat in CATEGORIES:

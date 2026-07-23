@@ -627,6 +627,7 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; position: rela
 .g10 { background: linear-gradient(130deg,#100010,#330033,#660066,#cc00cc,#ff66ff); }
 .g11 { background: radial-gradient(ellipse at 20% 80%,#ff6600,#cc0000,#080000); }
 .g12 { background: linear-gradient(165deg,#000510,#020a20,#05143d,#0a2860,#1a4a90,#3070cc); }
+.g13 { background: linear-gradient(135deg,#020813,#0a1b3a,#123866,#1d5799,#e0a904,#fcd116); }
 
 /* ── PAGINATION ── */
 .pagination {

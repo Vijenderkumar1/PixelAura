@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous AI SEO Blogging Agent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-robot brand-logo"></i>
+                <div class="brand-text">
+                    <h1>Antigravity</h1>
+                    <span>SEO Blog Agent</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-tab="posts">
+                    <i class="fa-solid fa-newspaper"></i> Published Posts
+                </a>
+                <a href="#" class="nav-item" data-tab="logs">
+                    <i class="fa-solid fa-terminal"></i> Agent Logs
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <i class="fa-solid fa-sliders"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="scheduler-status-pill" id="sidebar-scheduler-status">
+                    <span class="status-dot green"></span>
+                    <span class="status-text">Scheduler: Active</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h2 id="page-title">Dashboard Overview</h2>
+                <div class="user-profile">
+                    <span class="time-indicator"><i class="fa-regular fa-clock"></i> <span id="current-time">00:00:00</span></span>
+                    <button class="btn btn-primary btn-run" id="btn-trigger-run">
+                        <i class="fa-solid fa-play"></i> Run Agent Now
+                    </button>
+                </div>
+            </header>
+
+            <!-- TAB: Dashboard -->
+            <section id="tab-dashboard" class="tab-panel active">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon blue"><i class="fa-solid fa-file-invoice"></i></div>
+                        <div class="metric-info">
+                            <h3>Total Articles</h3>
+                            <p class="metric-value" id="stat-total-posts">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon purple"><i class="fa-solid fa-gauge-high"></i></div>
+                        <div class="metric-info">
+                            <h3>Avg SEO Score</h3>
+                            <p class="metric-value" id="stat-avg-seo">0/100</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon green"><i class="fa-solid fa-brain"></i></div>
+                        <div class="metric-info">
+                            <h3>Avg Readability</h3>
+                            <p class="metric-value" id="stat-avg-readability">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon gold"><i class="fa-solid fa-rocket"></i></div>
+                        <div class="metric-info">
+                            <h3>Next Run Time</h3>
+                            <p class="metric-value" id="stat-next-run">--:--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-details-row">
+                    <!-- Scheduler status and current state -->
+                    <div class="panel-card state-card">
+                        <h3>Agent State & Scheduling</h3>
+                        <div class="scheduler-info-list">
+                            <div class="info-item">
+                                <span class="info-label">Daily Posting Scheduled:</span>
+                                <span class="info-value" id="sched-enabled-badge"><span class="badge badge-success">Enabled</span></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Posting Target Time:</span>
+                                <span class="info-value text-highlight" id="sched-target-time">09:00 AM</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Last Scheduler Run:</span>
+                                <span class="info-value" id="sched-last-run">2026-07-10</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Active Writing Niche:</span>
+                                <span class="info-value" id="sched-niche">Tech & AI</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Target Publishing Platform:</span>
+                                <span class="info-value text-capitalize" id="sched-platform">WordPress</span>
+                            </div>
+                        </div>
+                        <div class="agent-activity-tracker">
+                            <div class="activity-header">
+                                <span>Agent Activity Scanner</span>
+                                <span class="pulse-indicator idle" id="agent-pulse"><span class="pulse-ring"></span> Idle</span>
+                            </div>
+                            <div class="activity-progress">
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" id="agent-progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <div class="progress-steps">
+                                    <span id="step-discover" class="step"><i class="fa-solid fa-circle-notch"></i> Discovery</span>
+                                    <span id="step-research" class="step"><i class="fa-solid fa-circle-notch"></i> Research</span>
+                                    <span id="step-write" class="step"><i class="fa-solid fa-circle-notch"></i> Write</span>
+                                    <span id="step-publish" class="step"><i class="fa-solid fa-circle-notch"></i> Publish</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent posts list -->
+                    <div class="panel-card recent-posts-card">
+                        <div class="card-header">
+                            <h3>Recently Generated</h3>
+                            <a href="#" class="view-all-link" id="link-view-all-posts">View All</a>
+                        </div>
+                        <div class="recent-posts-list" id="recent-posts-container">
+                            <div class="empty-state">No articles generated yet. Click "Run Agent Now" to generate one.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Posts -->
+            <section id="tab-posts" class="tab-panel">
+                <div class="panel-card full-width">
+                    <div class="table-actions">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search by topic or keyword..." id="input-search-posts">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="posts-table">
+                            <thead>
+                                <tr>
+                                    <th>Topic</th>
+                                    <th>Keyword</th>
+                                    <th>Platform</th>
+                                    <th>SEO</th>
+                                    <th>Readability</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="posts-table-body">
+                                <tr>
+                                    <td colspan="8">
+                                        <div class="empty-state">No articles found.</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Logs -->
+            <section id="tab-logs" class="tab-panel">
+                <div class="panel-card full-width logs-card">
+                    <div class="card-header">
+                        <h3>Agent Execution Logs</h3>
+                        <button class="btn btn-outline" id="btn-clear-logs">
+                            <i class="fa-solid fa-trash-can"></i> Clear Terminal Logs
+                        </button>
+                    </div>
+                    <div class="terminal-container" id="terminal-logs">
+                        <!-- Logs stream here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Settings -->
+            <section id="tab-settings" class="tab-panel">
+                <form id="settings-form">
+                    <div class="settings-grid">
+                        
+                        <!-- Col 1: General & AI Config -->
+                        <div class="settings-col">
+                            <div class="panel-card">
+                                <h3>General & AI Parameters</h3>
+                                <div class="form-group">
+                                    <label for="setting-gemini-key">Gemini API Key</label>
+                                    <input type="password" id="setting-gemini-key" placeholder="Enter Gemini API Key" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-niche">Writing Niche</label>
+                                    <input type="text" id="setting-niche" placeholder="e.g. Technology & AI, Health, Travel">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-tone">Writing Tone</label>
+                                    <input type="text" id="setting-tone" placeholder="e.g. Informative & Conversational">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="setting-word-count">Target Word Count</label>
+                                        <input type="text" id="setting-word-count" placeholder="2000-3000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="setting-seo-score">SEO Target Score</label>
+                                        <input type="number" id="setting-seo-score" min="50" max="100" placeholder="90">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-card">
+                                <h3>Scheduler Configuration</h3>
+                                <div class="form-group toggle-group">
+                                    <label for="setting-sched-enabled">Enable Daily Scheduler</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-sched-enabled">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="setting-sched-time">Trigger Time (Daily clock)</label>
+                                        <input type="time" id="setting-sched-time">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="setting-posts-per-day">Posts per Day (Frequency)</label>
+                                        <input type="number" id="setting-posts-per-day" min="1" max="120" placeholder="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Publishing Platforms -->
+                        <div class="settings-col">
+                            <div class="panel-card">
+                                <h3>Publishing Destination</h3>
+                                <div class="form-group">
+                                    <label for="setting-platform">Select Destination Platform</label>
+                                    <select id="setting-platform">
+                                        <option value="none">Save to Drafts Only (No Auto-Publish)</option>
+                                        <option value="wordpress">WordPress REST API</option>
+                                        <option value="blogger">Google Blogger v3 API</option>
+                                        <option value="both">WordPress & Blogger Both</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Platform config details wrapper -->
+                            <div class="panel-card platform-card" id="platform-config-wordpress" style="display: none;">
+                                <h3>WordPress Credentials</h3>
+                                <div class="form-group">
+                                    <label for="setting-wp-url">WordPress Site URL</label>
+                                    <input type="url" id="setting-wp-url" placeholder="https://mywordpress.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-wp-user">Username</label>
+                                    <input type="text" id="setting-wp-user" placeholder="WordPress Admin Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-wp-password">Application Password</label>
+                                    <input type="password" id="setting-wp-password" placeholder="abcd efgh ijkl mnop">
+                                    <span class="help-text">Generate this in WordPress under Users -> Profile -> Application Passwords.</span>
+                                </div>
+                            </div>
+
+                            <div class="panel-card platform-card" id="platform-config-blogger" style="display: none;">
+                                <h3>Google Blogger Credentials</h3>
+                                <div class="form-group">
+                                    <label for="setting-blogger-id">Blogger Blog ID</label>
+                                    <input type="text" id="setting-blogger-id" placeholder="e.g. 6866056087413867375">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-blogger-client-id">Client ID</label>
+                                    <input type="text" id="setting-blogger-client-id" placeholder="Google Client ID">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-blogger-client-secret">Client Secret</label>
+                                    <input type="password" id="setting-blogger-client-secret" placeholder="Google Client Secret">
+                                </div>
+                                
+                                <div class="oauth-connection-block">
+                                    <div class="oauth-status" id="blogger-token-status">
+                                        <i class="fa-solid fa-circle-exclamation text-yellow"></i> Not Connected
+                                    </div>
+                                    <button type="button" class="btn btn-outline" id="btn-oauth-blogger">
+                                        <i class="fa-brands fa-google"></i> Connect Blogger (Authorize)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button type="submit" class="btn btn-primary btn-save">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Settings
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL: Post Viewer -->
+    <div class="modal-backdrop" id="modal-post-viewer">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title">Article Preview</h2>
+                <button class="modal-close" id="modal-btn-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" data-modal-tab="content">Full Article</button>
+                <button class="modal-tab-btn" data-modal-tab="seo">SEO Audit Details</button>
+                <button class="modal-tab-btn" data-modal-tab="metadata">Metadata & Schema</button>
+                <button class="modal-tab-btn" data-modal-tab="images">Image Prompts</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Modal Tab: Content -->
+                <div class="modal-tab-panel active" id="modal-panel-content">
+                    <div class="article-meta-summary">
+                        <span id="modal-post-date"><i class="fa-solid fa-calendar"></i> Posted: --</span>
+                        <span id="modal-post-wordcount"><i class="fa-solid fa-calculator"></i> Words: 0</span>
+                        <span id="modal-post-pub-platform"><i class="fa-solid fa-globe"></i> Destination: None</span>
+                    </div>
+                    <article class="rendered-markdown" id="modal-article-body">
+                        <!-- Markdown content is rendered here -->
+                    </article>
+                </div>
+                
+                <!-- Modal Tab: SEO Audit -->
+                <div class="modal-tab-panel" id="modal-panel-seo">
+                    <div class="seo-breakdown-container">
+                        <div class="seo-radial-score">
+                            <div class="radial-number" id="modal-seo-circle-score">0</div>
+                            <span>SEO Score</span>
+                        </div>
+                        <div class="seo-audit-list">
+                            <h3>Optimization Checklist</h3>
+                            <ul id="modal-seo-audit-items">
+                                <!-- Checks populated by js -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tab: Metadata & Schema -->
+                <div class="modal-tab-panel" id="modal-panel-metadata">
+                    <div class="form-group">
+                        <label>SEO Title (Google Title Tag)</label>
+                        <input type="text" id="modal-meta-title" readonly class="input-readonly">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Description</label>
+                        <textarea id="modal-meta-desc" readonly class="input-readonly" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>URL Slug</label>
+                        <input type="text" id="modal-meta-slug" readonly class="input-readonly">
+                    </div>
+                    
+                    <div class="schema-code-blocks">
+                        <h3>Generated JSON-LD Schema Markups</h3>
+                        <div class="schema-block">
+                            <h4>Article Schema</h4>
+                            <pre><code id="modal-schema-article">{}</code></pre>
+                        </div>
+                        <div class="schema-block">
+                            <h4>FAQ Page Schema</h4>
+                            <pre><code id="modal-schema-faq">{}</code></pre>
+                        </div>
+                        <div class="schema-block">
+                            <h4>Breadcrumb Schema</h4>
+                            <pre><code id="modal-schema-breadcrumb">{}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tab: Image Prompts -->
+                <div class="modal-tab-panel" id="modal-panel-images">
+                    <div class="image-prompt-card featured-img">
+                        <h4><span class="badge badge-purple">Featured Image</span></h4>
+                        <div class="prompt-text">
+                            <strong>AI Prompt:</strong>
+                            <p id="modal-img-prompt-featured">Loading prompt...</p>
+                        </div>
+                        <div class="alt-text-label">
+                            <strong>ALT Text:</strong> <span id="modal-img-alt-featured">...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="in-content-prompts">
+                        <h4>In-Content Images (x3)</h4>
+                        <div id="modal-in-content-prompts-container">
+                            <!-- Prompts populated by js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modal-btn-delete-post"><i class="fa-solid fa-trash-can"></i> Delete Article</button>
+                <button class="btn btn-primary" id="modal-btn-done">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="js/app.js"></script>
+</body>
+</html>
