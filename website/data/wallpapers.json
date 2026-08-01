@@ -3643,5 +3643,23 @@
         "download": "assets/images/generated/architecture_0778.webp",
         "provider": "",
         "date": "2026-08-01 11:29:38"
+    },
+    {
+        "id": 779,
+        "title": "Architecture 779",
+        "category": "Architecture",
+        "image": "assets/images/generated/architecture_0779.webp",
+        "download": "assets/images/generated/architecture_0779.webp",
+        "provider": "",
+        "date": "2026-08-01 11:29:38"
+    },
+    {
+        "id": 780,
+        "title": "Architecture 780",
+        "category": "Architecture",
+        "image": "assets/images/generated/architecture_0780.webp",
+        "download": "assets/images/generated/architecture_0780.webp",
+        "provider": "",
+        "date": "2026-08-01 11:29:38"
     }
 ]
