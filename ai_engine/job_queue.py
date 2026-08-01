@@ -24,6 +24,16 @@ class JobQueue:
 
     def pending(self):
 
+        # Auto-recover any jobs left stuck in 'generating' state from interrupted runs
+        updated = False
+        for job in self.jobs:
+            if job["status"] == "generating":
+                job["status"] = "pending"
+                updated = True
+
+        if updated:
+            self.save()
+
         return [
             job
             for job in self.jobs

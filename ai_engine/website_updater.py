@@ -218,4 +218,7 @@ def update_website():
         cat_wallpapers = [w for w in wallpapers if w["category"].lower() == cat.lower()]
         create_zip_bundle(BUNDLES_DIR / f"{cat_lower}_pack.zip", cat_wallpapers)
 
-    create_zip_bundle(BUNDLES_DIR / "ultimate_bundle.zip", wallpapers)
+    # Sort wallpapers descending by date and limit ultimate_bundle.zip to latest 150 wallpapers
+    # to guarantee zip size stays well below Cloudflare's 25 MiB single-file limit
+    recent_wallpapers = sorted(wallpapers, key=lambda x: x.get("date", ""), reverse=True)[:150]
+    create_zip_bundle(BUNDLES_DIR / "ultimate_bundle.zip", recent_wallpapers)

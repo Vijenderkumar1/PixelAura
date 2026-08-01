@@ -196,7 +196,7 @@ let drawerPage     = 1;
 async function loadWallpapers() {
     try {
         updateAuthUI();
-        const response = await fetch("data/wallpapers.json");
+        const response = await fetch("data/wallpapers.json?v=" + Date.now());
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         wallpapers = await response.json();
 
