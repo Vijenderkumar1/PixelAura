@@ -62,7 +62,7 @@ def generate_rss_feed(wallpapers):
     title.text = "PixelAura – 4K AI Wallpapers & Packs"
 
     link = ET.SubElement(channel, "link")
-    link.text = "https://pixelauraw.netlify.app/"
+    link.text = "https://pixelaura.pages.dev/"
 
     description = ET.SubElement(channel, "description")
     description.text = "Download stunning 4K AI-generated wallpapers and premium mobile packs for your phone, desktop, and tablet. Get instant access to free high-resolution background downloads today."
@@ -73,7 +73,7 @@ def generate_rss_feed(wallpapers):
     # Since ElementTree subelement tags with prefix need QName or specific format,
     # we can use "{http://www.w3.org/2005/Atom}link"
     atom_link = ET.SubElement(channel, "{http://www.w3.org/2005/Atom}link", {
-        "href": "https://pixelauraw.netlify.app/feed.xml",
+        "href": "https://pixelaura.pages.dev/feed.xml",
         "rel": "self",
         "type": "application/rss+xml"
     })
@@ -98,9 +98,9 @@ def generate_rss_feed(wallpapers):
         wp_title.text = wp["title"]
 
         wp_link = ET.SubElement(item, "link")
-        wp_link.text = f"https://pixelauraw.netlify.app/?id={wp['id']}"
+        wp_link.text = f"https://pixelaura.pages.dev/?id={wp['id']}"
 
-        image_url = f"https://pixelauraw.netlify.app/{wp['image']}"
+        image_url = f"https://pixelaura.pages.dev/{wp['image']}"
         mime_type = "image/webp" if image_url.endswith(".webp") else "image/png"
 
         wp_desc = ET.SubElement(item, "description")

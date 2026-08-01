@@ -4,7 +4,7 @@
 
 ## Live Site
 
-🌐 **[View on GitHub Pages](https://YOUR-USERNAME.github.io/PixelAura)**
+🌐 **[View Live Site](https://pixelaura.pages.dev)**
 
 ---
 
