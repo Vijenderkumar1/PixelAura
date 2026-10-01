@@ -18628,5 +18628,50 @@
         "download": "assets/images/generated/amoled_2578.webp",
         "provider": "",
         "date": "2026-09-30 05:46:26"
+    },
+    {
+        "id": 2581,
+        "title": "Space 2581",
+        "category": "Space",
+        "image": "assets/images/generated/space_2581.webp",
+        "download": "assets/images/generated/space_2581.webp",
+        "provider": "",
+        "date": "2026-10-01 06:15:11"
+    },
+    {
+        "id": 2587,
+        "title": "Nature 2587",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_2587.webp",
+        "download": "assets/images/generated/nature_2587.webp",
+        "provider": "",
+        "date": "2026-10-01 06:15:11"
+    },
+    {
+        "id": 2593,
+        "title": "Cyberpunk 2593",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_2593.webp",
+        "download": "assets/images/generated/cyberpunk_2593.webp",
+        "provider": "",
+        "date": "2026-10-01 06:15:11"
+    },
+    {
+        "id": 2599,
+        "title": "Minimal 2599",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_2599.webp",
+        "download": "assets/images/generated/minimal_2599.webp",
+        "provider": "",
+        "date": "2026-10-01 06:15:11"
+    },
+    {
+        "id": 2606,
+        "title": "Fantasy 2606",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_2606.webp",
+        "download": "assets/images/generated/fantasy_2606.webp",
+        "provider": "",
+        "date": "2026-10-01 06:15:11"
     }
 ]
