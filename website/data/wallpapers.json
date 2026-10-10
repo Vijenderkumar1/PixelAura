@@ -18997,5 +18997,41 @@
         "download": "assets/images/generated/cyberpunk_2849.webp",
         "provider": "",
         "date": "2026-10-09 06:25:07"
+    },
+    {
+        "id": 2851,
+        "title": "Minimal 2851",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_2851.webp",
+        "download": "assets/images/generated/minimal_2851.webp",
+        "provider": "",
+        "date": "2026-10-10 06:07:14"
+    },
+    {
+        "id": 2858,
+        "title": "Fantasy 2858",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_2858.webp",
+        "download": "assets/images/generated/fantasy_2858.webp",
+        "provider": "",
+        "date": "2026-10-10 06:07:14"
+    },
+    {
+        "id": 2865,
+        "title": "Ocean 2865",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_2865.webp",
+        "download": "assets/images/generated/ocean_2865.webp",
+        "provider": "",
+        "date": "2026-10-10 06:07:14"
+    },
+    {
+        "id": 2878,
+        "title": "Cars 2878",
+        "category": "Cars",
+        "image": "assets/images/generated/cars_2878.webp",
+        "download": "assets/images/generated/cars_2878.webp",
+        "provider": "",
+        "date": "2026-10-10 06:07:14"
     }
 ]
