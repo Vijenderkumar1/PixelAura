@@ -19069,5 +19069,50 @@
         "download": "assets/images/generated/tech_2905.webp",
         "provider": "",
         "date": "2026-10-11 06:04:57"
+    },
+    {
+        "id": 2911,
+        "title": "Texture 2911",
+        "category": "Texture",
+        "image": "assets/images/generated/texture_2911.webp",
+        "download": "assets/images/generated/texture_2911.webp",
+        "provider": "",
+        "date": "2026-10-12 06:15:07"
+    },
+    {
+        "id": 2917,
+        "title": "Architecture 2917",
+        "category": "Architecture",
+        "image": "assets/images/generated/architecture_2917.webp",
+        "download": "assets/images/generated/architecture_2917.webp",
+        "provider": "",
+        "date": "2026-10-12 06:15:07"
+    },
+    {
+        "id": 2923,
+        "title": "Retro 2923",
+        "category": "Retro",
+        "image": "assets/images/generated/retro_2923.webp",
+        "download": "assets/images/generated/retro_2923.webp",
+        "provider": "",
+        "date": "2026-10-12 06:15:07"
+    },
+    {
+        "id": 2929,
+        "title": "Pastel 2929",
+        "category": "Pastel",
+        "image": "assets/images/generated/pastel_2929.webp",
+        "download": "assets/images/generated/pastel_2929.webp",
+        "provider": "",
+        "date": "2026-10-12 06:15:07"
+    },
+    {
+        "id": 2935,
+        "title": "Aurora 2935",
+        "category": "Aurora",
+        "image": "assets/images/generated/aurora_2935.webp",
+        "download": "assets/images/generated/aurora_2935.webp",
+        "provider": "",
+        "date": "2026-10-12 06:15:07"
     }
 ]
