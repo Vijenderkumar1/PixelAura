@@ -19168,5 +19168,50 @@
         "download": "assets/images/generated/nature_2969.webp",
         "provider": "",
         "date": "2026-10-13 06:56:11"
+    },
+    {
+        "id": 2971,
+        "title": "Cyberpunk 2971",
+        "category": "Cyberpunk",
+        "image": "assets/images/generated/cyberpunk_2971.webp",
+        "download": "assets/images/generated/cyberpunk_2971.webp",
+        "provider": "",
+        "date": "2026-10-14 05:08:21"
+    },
+    {
+        "id": 2978,
+        "title": "Minimal 2978",
+        "category": "Minimal",
+        "image": "assets/images/generated/minimal_2978.webp",
+        "download": "assets/images/generated/minimal_2978.webp",
+        "provider": "",
+        "date": "2026-10-14 05:08:21"
+    },
+    {
+        "id": 2984,
+        "title": "Fantasy 2984",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_2984.webp",
+        "download": "assets/images/generated/fantasy_2984.webp",
+        "provider": "",
+        "date": "2026-10-14 05:08:21"
+    },
+    {
+        "id": 2991,
+        "title": "Ocean 2991",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_2991.webp",
+        "download": "assets/images/generated/ocean_2991.webp",
+        "provider": "",
+        "date": "2026-10-14 05:08:21"
+    },
+    {
+        "id": 2997,
+        "title": "Galaxy 2997",
+        "category": "Galaxy",
+        "image": "assets/images/generated/galaxy_2997.webp",
+        "download": "assets/images/generated/galaxy_2997.webp",
+        "provider": "",
+        "date": "2026-10-14 05:08:21"
     }
 ]
