@@ -19483,5 +19483,50 @@
         "download": "assets/images/generated/neon_3151.webp",
         "provider": "",
         "date": "2026-10-20 05:04:15"
+    },
+    {
+        "id": 3181,
+        "title": "Pastel 3181",
+        "category": "Pastel",
+        "image": "assets/images/generated/pastel_3181.webp",
+        "download": "assets/images/generated/pastel_3181.webp",
+        "provider": "",
+        "date": "2026-10-21 05:04:57"
+    },
+    {
+        "id": 3187,
+        "title": "Aurora 3187",
+        "category": "Aurora",
+        "image": "assets/images/generated/aurora_3187.webp",
+        "download": "assets/images/generated/aurora_3187.webp",
+        "provider": "",
+        "date": "2026-10-21 05:04:57"
+    },
+    {
+        "id": 3193,
+        "title": "3D Render 3193",
+        "category": "3D Render",
+        "image": "assets/images/generated/3d_render_3193.webp",
+        "download": "assets/images/generated/3d_render_3193.webp",
+        "provider": "",
+        "date": "2026-10-21 05:04:57"
+    },
+    {
+        "id": 3199,
+        "title": "Krishna 3199",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_3199.webp",
+        "download": "assets/images/generated/krishna_3199.webp",
+        "provider": "",
+        "date": "2026-10-21 05:04:57"
+    },
+    {
+        "id": 3205,
+        "title": "AMOLED 3205",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_3205.webp",
+        "download": "assets/images/generated/amoled_3205.webp",
+        "provider": "",
+        "date": "2026-10-21 05:04:57"
     }
 ]
