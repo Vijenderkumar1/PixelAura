@@ -19717,5 +19717,23 @@
         "download": "assets/images/generated/aurora_3318.webp",
         "provider": "",
         "date": "2026-10-25 05:01:10"
+    },
+    {
+        "id": 3331,
+        "title": "AMOLED 3331",
+        "category": "AMOLED",
+        "image": "assets/images/generated/amoled_3331.webp",
+        "download": "assets/images/generated/amoled_3331.webp",
+        "provider": "",
+        "date": "2026-10-26 05:04:31"
+    },
+    {
+        "id": 3337,
+        "title": "Space 3337",
+        "category": "Space",
+        "image": "assets/images/generated/space_3337.webp",
+        "download": "assets/images/generated/space_3337.webp",
+        "provider": "",
+        "date": "2026-10-26 05:04:31"
     }
 ]
