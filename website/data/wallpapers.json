@@ -20320,5 +20320,41 @@
         "download": "assets/images/generated/neon_3660.webp",
         "provider": "",
         "date": "2026-11-05 07:07:24"
+    },
+    {
+        "id": 3667,
+        "title": "Texture 3667",
+        "category": "Texture",
+        "image": "assets/images/generated/texture_3667.webp",
+        "download": "assets/images/generated/texture_3667.webp",
+        "provider": "",
+        "date": "2026-11-06 07:06:09"
+    },
+    {
+        "id": 3673,
+        "title": "Architecture 3673",
+        "category": "Architecture",
+        "image": "assets/images/generated/architecture_3673.webp",
+        "download": "assets/images/generated/architecture_3673.webp",
+        "provider": "",
+        "date": "2026-11-06 07:06:09"
+    },
+    {
+        "id": 3680,
+        "title": "Retro 3680",
+        "category": "Retro",
+        "image": "assets/images/generated/retro_3680.webp",
+        "download": "assets/images/generated/retro_3680.webp",
+        "provider": "",
+        "date": "2026-11-06 07:06:09"
+    },
+    {
+        "id": 3687,
+        "title": "Pastel 3687",
+        "category": "Pastel",
+        "image": "assets/images/generated/pastel_3687.webp",
+        "download": "assets/images/generated/pastel_3687.webp",
+        "provider": "",
+        "date": "2026-11-06 07:06:09"
     }
 ]
