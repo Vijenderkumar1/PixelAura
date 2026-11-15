@@ -20698,5 +20698,50 @@
         "download": "assets/images/generated/architecture_3928.webp",
         "provider": "",
         "date": "2026-11-14 06:49:41"
+    },
+    {
+        "id": 3931,
+        "title": "Retro 3931",
+        "category": "Retro",
+        "image": "assets/images/generated/retro_3931.webp",
+        "download": "assets/images/generated/retro_3931.webp",
+        "provider": "",
+        "date": "2026-11-15 06:53:37"
+    },
+    {
+        "id": 3937,
+        "title": "Pastel 3937",
+        "category": "Pastel",
+        "image": "assets/images/generated/pastel_3937.webp",
+        "download": "assets/images/generated/pastel_3937.webp",
+        "provider": "",
+        "date": "2026-11-15 06:53:37"
+    },
+    {
+        "id": 3943,
+        "title": "Aurora 3943",
+        "category": "Aurora",
+        "image": "assets/images/generated/aurora_3943.webp",
+        "download": "assets/images/generated/aurora_3943.webp",
+        "provider": "",
+        "date": "2026-11-15 06:53:37"
+    },
+    {
+        "id": 3949,
+        "title": "3D Render 3949",
+        "category": "3D Render",
+        "image": "assets/images/generated/3d_render_3949.webp",
+        "download": "assets/images/generated/3d_render_3949.webp",
+        "provider": "",
+        "date": "2026-11-15 06:53:37"
+    },
+    {
+        "id": 3955,
+        "title": "Krishna 3955",
+        "category": "Krishna",
+        "image": "assets/images/generated/krishna_3955.webp",
+        "download": "assets/images/generated/krishna_3955.webp",
+        "provider": "",
+        "date": "2026-11-15 06:53:37"
     }
 ]
