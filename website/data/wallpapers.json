@@ -20779,5 +20779,23 @@
         "download": "assets/images/generated/minimal_3985.webp",
         "provider": "",
         "date": "2026-11-16 06:56:58"
+    },
+    {
+        "id": 3997,
+        "title": "Ocean 3997",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_3997.webp",
+        "download": "assets/images/generated/ocean_3997.webp",
+        "provider": "",
+        "date": "2026-11-17 08:13:39"
+    },
+    {
+        "id": 4017,
+        "title": "Forest 4017",
+        "category": "Forest",
+        "image": "assets/images/generated/forest_4017.webp",
+        "download": "assets/images/generated/forest_4017.webp",
+        "provider": "",
+        "date": "2026-11-17 08:13:39"
     }
 ]
