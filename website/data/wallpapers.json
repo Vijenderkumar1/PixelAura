@@ -20887,5 +20887,14 @@
         "download": "assets/images/generated/3d_render_4076.webp",
         "provider": "",
         "date": "2026-11-19 07:43:16"
+    },
+    {
+        "id": 4100,
+        "title": "Nature 4100",
+        "category": "Nature",
+        "image": "assets/images/generated/nature_4100.webp",
+        "download": "assets/images/generated/nature_4100.webp",
+        "provider": "",
+        "date": "2026-11-20 07:34:16"
     }
 ]
