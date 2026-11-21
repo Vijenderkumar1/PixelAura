@@ -20896,5 +20896,23 @@
         "download": "assets/images/generated/nature_4100.webp",
         "provider": "",
         "date": "2026-11-20 07:34:16"
+    },
+    {
+        "id": 4117,
+        "title": "Fantasy 4117",
+        "category": "Fantasy",
+        "image": "assets/images/generated/fantasy_4117.webp",
+        "download": "assets/images/generated/fantasy_4117.webp",
+        "provider": "",
+        "date": "2026-11-21 07:30:18"
+    },
+    {
+        "id": 4124,
+        "title": "Ocean 4124",
+        "category": "Ocean",
+        "image": "assets/images/generated/ocean_4124.webp",
+        "download": "assets/images/generated/ocean_4124.webp",
+        "provider": "",
+        "date": "2026-11-21 07:30:18"
     }
 ]
