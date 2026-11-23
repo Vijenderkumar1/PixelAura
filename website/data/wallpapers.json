@@ -20950,5 +20950,41 @@
         "download": "assets/images/generated/tech_4167.webp",
         "provider": "",
         "date": "2026-11-22 07:11:25"
+    },
+    {
+        "id": 4177,
+        "title": "Architecture 4177",
+        "category": "Architecture",
+        "image": "assets/images/generated/architecture_4177.webp",
+        "download": "assets/images/generated/architecture_4177.webp",
+        "provider": "",
+        "date": "2026-11-23 07:57:22"
+    },
+    {
+        "id": 4184,
+        "title": "Retro 4184",
+        "category": "Retro",
+        "image": "assets/images/generated/retro_4184.webp",
+        "download": "assets/images/generated/retro_4184.webp",
+        "provider": "",
+        "date": "2026-11-23 07:57:22"
+    },
+    {
+        "id": 4190,
+        "title": "Pastel 4190",
+        "category": "Pastel",
+        "image": "assets/images/generated/pastel_4190.webp",
+        "download": "assets/images/generated/pastel_4190.webp",
+        "provider": "",
+        "date": "2026-11-23 07:57:22"
+    },
+    {
+        "id": 4196,
+        "title": "Aurora 4196",
+        "category": "Aurora",
+        "image": "assets/images/generated/aurora_4196.webp",
+        "download": "assets/images/generated/aurora_4196.webp",
+        "provider": "",
+        "date": "2026-11-23 07:57:22"
     }
 ]
